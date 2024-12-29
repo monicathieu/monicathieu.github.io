@@ -1,0 +1,32 @@
+project:
+  type: website
+
+website:
+  title: "Monica Thieu, PhD"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - research.qmd
+      - sidebar:teaching
+      - game-shows.qmd
+
+  sidebar:
+    - id: teaching
+      title: Teaching
+      contents:
+        - teaching/teaching-statement.qmd
+        - teaching/teaching-roles.qmd
+        - teaching/teaching-impact.qmd
+        - teaching/teaching-materials.qmd
+format:
+  html:
+    theme: vapor
+    css: styles.css
+    toc: true
+
+execute:
+  freeze: auto
+
+

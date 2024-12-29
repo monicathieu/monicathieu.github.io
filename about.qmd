@@ -1,0 +1,27 @@
+---
+title: "About"
+---
+
+![](headshot-mthieu-2024.jpg){width=50%}
+
+# Where I'm at.
+
+I'm currently a [FIRST](https://med.emory.edu/education/postdoctoral-training/first/index.html)-funded postdoctoral fellow working in Dr. Phil Kragel's [ECCO Lab](https://www.ecco-lab.org) at Emory University in Atlanta, GA. In my research, I apply deep learning models to behavior and neuroimaging to investigate how people experience emotions from the things they see and hear. In my teaching, I develop courses on the foundations of those computational techniques for junior behavioral scientists. At any given moment, I'm probably drinking from a very large cup of tea.
+
+**Previously:**
+
+In 2013 I started working as a research assistant on a media multitasking & cognition project with Dr. Melina Uncapher, then a research associate in Dr. Anthony Wagner's [Memory Lab](https://memorylab.stanford.edu), during my freshman year at Stanford University. She couldn't get rid of me, and I continued working with her in the lab throughout undergrad, earning two undergraduate summer fellowships through Stanford (PsychSummer and Bio-X) so I would literally never have to leave. I completed my bachelor's degree in three years, serving as an undergraduate Teaching Fellow for [Psych One](http://psych-one.weebly.com), Stanford's introductory psychology course, during my third year, while also completing an honors thesis under Drs. Uncapher and Wagner.
+
+After graduation in 2015, I transitioned into a full-time lab manager + research assistant position in the Memory Lab. As lab manager/RA, I served as a jack-of-most-trades, handling various arms of data collection and analysis for our healthy aging study, maintaining lab needs both tangible (office supplies, copies, uncomfortable amounts of coffee) and intangible (IRB protocols, software licenses, moral support), and defusing tense meetings with horrible jokes. I also spent some time assisting Dr. Uncapher with data processing and statistics for her [educational neuroscience projects](https://neuroscape.ucsf.edu/education/) with the Neuroscape group at UC San Francisco.
+
+In fall 2017, I began working on my PhD in Dr. Kevin Ochsner's [Social Cognitive & Affective Neuroscience Lab](http://www.ochsnerscanlab.org) at Columbia University, which I completed in spring 2022. From 2017-2019, I co-managed an informal R users club in the department, where I helped to organize a yearly coding bootcamp and bi-weekly meetings/workshops to enrich our collective R experience. During my first post-PhD summer, I taught _The Science of Psychology: Explorations and Applications,_ a class I originally co-designed with Dr. Caroline Marvin, at Columbia.
+
+# Some of my code.
+
+Check out [my GitHub](https://github.com/monicathieu) to see the code projects I've contributed to.
+
+# A snapshot of my CV.
+
+(Click [here](/cv/) for the full-page version. Made with the [vitae](https://pkg.mitchelloharawild.com/vitae/index.html) package!)
+
+<iframe src="/cv/index.html" width="100%" height="500px" title="Monica Thieu's CV"></iframe>
