@@ -10,7 +10,10 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: about.qmd
+        text: About
+      - href: posts.qmd
+        text: Blog
       - research.qmd
       - sidebar:teaching
       - game-shows.qmd
@@ -25,7 +28,9 @@ website:
         - teaching/teaching-materials.qmd
 format:
   html:
-    theme: vapor
+    theme: 
+      - vapor
+      - custom.scss
     css: styles.css
     toc: true
 
