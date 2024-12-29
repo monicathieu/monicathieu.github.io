@@ -22,6 +22,6 @@ Check out [my GitHub](https://github.com/monicathieu) to see the code projects I
 
 # A snapshot of my CV.
 
-(Click [here](/cv/) for the full-page version. Made with the [vitae](https://pkg.mitchelloharawild.com/vitae/index.html) package!)
+(Click [here](/cv.html) for the full-page version. Made with the [vitae](https://pkg.mitchelloharawild.com/vitae/index.html) package!)
 
-<iframe src="/cv/index.html" width="100%" height="500px" title="Monica Thieu's CV"></iframe>
+<iframe src="/cv.html" width="100%" height="500px" title="Monica Thieu's CV"></iframe>
