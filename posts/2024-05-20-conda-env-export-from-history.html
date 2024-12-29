@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-05-20">
 
-<title>Monica Thieu, PhD - Monica Thieu on the internet</title>
+<title>Monica Thieu, PhD - Export your conda envs –from-history !</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Monica Thieu, PhD</span>
     </a>
   </div>
@@ -89,19 +124,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -110,25 +145,25 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-statement.html">
+    <a class="dropdown-item" href="../teaching/teaching-statement.html">
  <span class="dropdown-text">Teaching philosophy</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-roles.html">
+    <a class="dropdown-item" href="../teaching/teaching-roles.html">
  <span class="dropdown-text">Teaching roles and responsibilities</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-impact.html">
+    <a class="dropdown-item" href="../teaching/teaching-impact.html">
  <span class="dropdown-text">Teaching impact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-materials.html">
+    <a class="dropdown-item" href="../teaching/teaching-materials.html">
  <span class="dropdown-text">Example teaching materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./game-shows.html"> 
+    <a class="nav-link" href="../game-shows.html"> 
 <span class="menu-text">Game shows</span></a>
   </li>  
 </ul>
@@ -143,21 +178,45 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#im-alive" id="toc-im-alive" class="nav-link active" data-scroll-target="#im-alive">I’m alive!</a></li>
+  <li><a href="#todays-tip-export-your-conda-environments-from-history" id="toc-todays-tip-export-your-conda-environments-from-history" class="nav-link" data-scroll-target="#todays-tip-export-your-conda-environments-from-history">Today’s tip: Export your conda environments –from-history</a>
+  <ul class="collapse">
+  <li><a href="#the-scenario" id="toc-the-scenario" class="nav-link" data-scroll-target="#the-scenario">The scenario</a></li>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link" data-scroll-target="#the-problem">The problem</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution">The solution</a></li>
+  <li><a href="#ps-refine-environment.yml-by-hand" id="toc-ps-refine-environment.yml-by-hand" class="nav-link" data-scroll-target="#ps-refine-environment.yml-by-hand">PS: Refine environment.yml by hand</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Monica Thieu on the internet</h1>
-</div>
+<h1 class="title">Export your conda envs –from-history !</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">hacks</div>
+    <div class="quarto-category">python</div>
+    <div class="quarto-category">conda</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 20, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -167,12 +226,60 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I am a postdoctoral fellow at <strong>Emory University,</strong> studying how we process and conceptualize different types of emotional experiences.</p>
-<p>I use primarily <strong>R</strong> for my own data analysis and teach R so others might use it as well.</p>
-<p>Welcome to my <a href="https://github.com/rstudio/blogdown"><code>quarto</code></a>-powered website! Please take a look around.</p>
-<p><img src="misc-files/name_handwritten_small_white.png" class="img-fluid"></p>
+<section id="im-alive" class="level2">
+<h2 class="anchored" data-anchor-id="im-alive">I’m alive!</h2>
+<p>Hi everyone! It’s been 3 years since I’ve put up a blog post…</p>
+<iframe src="https://giphy.com/embed/7xZAu81T70Uuc" width="480" height="480" style="" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>
+<a href="https://giphy.com/gifs/reaction-7xZAu81T70Uuc">via GIPHY</a>
+</p>
+<p>But I’m trying to get back into the practice of documenting tips/tricks/hacks I’ve assembled in the process of managing my research computing, so that you don’t have to struggle like I did!</p>
+<p>Right now, I’m currently cleaning up the <a href="https://github.com/ecco-laboratory/flynet-looming">analysis code repository</a> associated with my first published postdoctoral research project. Accordingly, I’m hoping to put up several little #hacks blog posts up to document various roadblocks/bypasses I’m encountering as I attempt to make the analysis code end-to-end reproducible for another user.</p>
+<p>I’ve used <em>so</em> many other scientists’/programmers’ helpful blog posts in setting up the pipeline, so I hope I can pay it forward!</p>
+</section>
+<section id="todays-tip-export-your-conda-environments-from-history" class="level2">
+<h2 class="anchored" data-anchor-id="todays-tip-export-your-conda-environments-from-history">Today’s tip: Export your conda environments –from-history</h2>
+<section id="the-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="the-scenario">The scenario</h3>
+<p>If you use conda to manage Python package environments associated with specific analysis project folders (and you should!), you’ll know that you can export a <code>environment.yml</code> config file that records all of the packages installed in your environment using the following terminal command:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="op">&gt;</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>where <code>conda env export</code> will generate the config information associated with your active environment, and <code>&gt; environment.yml</code> captures the text output and saves it in said file.</p>
+<p>Then, another user (or you, but in a different folder) can recreate your package environment by saving a copy of <code>environment.yml</code> into that new project folder and running the following in a terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env create <span class="at">-f</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="the-problem" class="level3">
+<h3 class="anchored" data-anchor-id="the-problem">The problem</h3>
+<p>In a perfect world, this goes off with no hitches!</p>
+<p><strong>HOWEVER,</strong> if the exported environment is from a machine running a different OS than the OS on which you are creating the new environment, you are likely to run into problems if you follow these instructions as written. (I encountered this use case because I do my main work on our lab’s Linux computing cluster, but I prefer to generate ggplot figures on my local MacBook, and so I keep GitHub-tracked copies of the repository on the lab server and on my laptop.)</p>
+<p>This is because the default behavior of <code>conda env export</code> is to export <em>all installed packages</em> to the config record, <em>including OS-specific dependencies.</em> If you attempt to <code>conda env create</code> from, say, a Mac-generated environment.yml file on a Linux machine (as I did), you will get errors that some Mac-specific packages aren’t available to install, and the environment creation will fail.</p>
+<p>You might be thinking, “But wait! None of the Python packages I explicitly installed in my environment are OS-specific. <code>numpy</code>/<code>pandas</code>/<code>matplotlib</code>/<code>pytorch</code>/what have you are all supposed to work on any operating system!”</p>
+<p>That is true, because the OS-specific dependencies are being hidden from you! If you just run, say, <code>conda install pandas</code>, you can install the same pandas version on Windows, Mac, or Linux, but pandas’ underlying dependency packages (that will be installed along with the package you asked for) might differ from OS to OS.</p>
+</section>
+<section id="the-solution" class="level3">
+<h3 class="anchored" data-anchor-id="the-solution">The solution</h3>
+<p>You can add the <code>--from-history</code> flag to your <code>conda env export</code> call to export a lighter-weight version of the config info to environment.yml.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> env export <span class="at">--from-history</span> <span class="op">&gt;</span> environment.yml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Instead of writing out your package environment with all of the nitty-gritty OS-specific package info, the <code>--from-history</code> flag tells <code>conda env export</code> to record only the packages that were <em>explicitly</em> installed using <code>conda install</code>. Thus, environment.yml will record the endpoint packages you told conda to install, but not the (OS-specific) package dependencies that come along for the ride.</p>
+<p>This is covered briefly in the <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#exporting-an-environment-file-across-platforms">conda docs,</a> but it’s really easy to miss if you’re not specifically looking for it–hence this blog post.</p>
+<p>Now, when you port that environment.yml onto another machine running a different operating system, you should be able to recreate the environment without running into cross-OS errors!</p>
+<p>(Obviously, you might still get a different error. /shrug but it won’t be this one, hopefully.)</p>
+<p>Happy environment creating!</p>
+</section>
+<section id="ps-refine-environment.yml-by-hand" class="level3">
+<h3 class="anchored" data-anchor-id="ps-refine-environment.yml-by-hand">PS: Refine environment.yml by hand</h3>
+<p>Another behavior associated with the <code>--from-history</code> flag is that it only records the package versions (or lack thereof) that you explicitly specified upon install. For example, if you specifically called, like:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pytorch=1.12.1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>to install that specific version of PyTorch, then your environment.yml file will record <code>pytorch=1.12.1</code> accordingly, but if you only called:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conda</span> install pytorch</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>then your environment.yml file will only record <code>pytorch</code> without a specific version associated.</p>
+<p>One of the purposes of recording package environments <em>is</em> to specify package versions, just in case a package update introduces a feature change that causes code not to reproduce as written. By default, <code>conda env export</code> <em>does</em> include package version information, which we want, but it includes it alongside OS-specific information which we don’t want.</p>
+<p>If you want to add back in package version information, but it wasn’t originally caught/logged when you ran <code>conda env export --from-history</code>, you can <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually">manually edit the environment.yml</a> and add in package version info or specific conda channel info that will be used when someone else <code>conda env create</code>s an environment from your file.</p>
+<p>(Please remember that if you later run <code>conda env export --from-history &gt; environment.yml</code> again, conda will overwrite any of your hand edits to the previous environment.yml unless you specify a different path for the new environment.yml to be overwritten! And then, yes, you will need to manually re-add in your package version/channel specs. I really hate this, but it only takes a few seconds as long as you remember to do it.)</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

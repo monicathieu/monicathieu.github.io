@@ -1,32 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://monicathieu.github.io/personal-website-quarto/teaching/teaching-statement.html</loc>
+    <lastmod>2024-12-29T05:33:17.807Z</lastmod>
+  </url>
+  <url>
     <loc>https://monicathieu.github.io/personal-website-quarto/teaching/teaching-materials.html</loc>
     <lastmod>2024-12-29T05:33:17.805Z</lastmod>
-  </url>
-  <url>
-    <loc>https://monicathieu.github.io/personal-website-quarto/teaching/teaching-impact.html</loc>
-    <lastmod>2024-12-29T05:33:17.794Z</lastmod>
-  </url>
-  <url>
-    <loc>https://monicathieu.github.io/personal-website-quarto/about.html</loc>
-    <lastmod>2024-12-29T05:41:35.354Z</lastmod>
-  </url>
-  <url>
-    <loc>https://monicathieu.github.io/personal-website-quarto/game-shows.html</loc>
-    <lastmod>2024-12-29T05:35:27.701Z</lastmod>
   </url>
   <url>
     <loc>https://monicathieu.github.io/personal-website-quarto/research.html</loc>
     <lastmod>2024-12-29T05:34:46.818Z</lastmod>
   </url>
   <url>
+    <loc>https://monicathieu.github.io/personal-website-quarto/posts/2024-05-20-conda-env-export-from-history.html</loc>
+    <lastmod>2024-12-29T22:19:42.829Z</lastmod>
+  </url>
+  <url>
     <loc>https://monicathieu.github.io/personal-website-quarto/index.html</loc>
     <lastmod>2024-12-29T05:41:28.129Z</lastmod>
   </url>
   <url>
-    <loc>https://monicathieu.github.io/personal-website-quarto/teaching/teaching-statement.html</loc>
-    <lastmod>2024-12-29T05:33:17.807Z</lastmod>
+    <loc>https://monicathieu.github.io/personal-website-quarto/about.html</loc>
+    <lastmod>2024-12-29T22:12:43.751Z</lastmod>
+  </url>
+  <url>
+    <loc>https://monicathieu.github.io/personal-website-quarto/game-shows.html</loc>
+    <lastmod>2024-12-29T05:35:27.701Z</lastmod>
+  </url>
+  <url>
+    <loc>https://monicathieu.github.io/personal-website-quarto/posts.html</loc>
+    <lastmod>2024-12-29T22:22:01.617Z</lastmod>
+  </url>
+  <url>
+    <loc>https://monicathieu.github.io/personal-website-quarto/posts/2024-05-21-multiple-r-versions.html</loc>
+    <lastmod>2024-12-29T22:14:31.298Z</lastmod>
+  </url>
+  <url>
+    <loc>https://monicathieu.github.io/personal-website-quarto/teaching/teaching-impact.html</loc>
+    <lastmod>2024-12-29T05:33:17.794Z</lastmod>
   </url>
   <url>
     <loc>https://monicathieu.github.io/personal-website-quarto/teaching/teaching-roles.html</loc>

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="dcterms.date" content="2024-05-21">
 
-<title>Monica Thieu, PhD - Monica Thieu on the internet</title>
+<title>Monica Thieu, PhD - How to install and switch between multiple R versions on a Mac</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +21,59 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,7 +103,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -78,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Monica Thieu, PhD</span>
     </a>
   </div>
@@ -89,19 +124,19 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> 
+    <a class="nav-link" href="../index.html"> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
+    <a class="nav-link" href="../about.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./posts.html"> 
+    <a class="nav-link" href="../posts.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./research.html"> 
+    <a class="nav-link" href="../research.html"> 
 <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -110,25 +145,25 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-statement.html">
+    <a class="dropdown-item" href="../teaching/teaching-statement.html">
  <span class="dropdown-text">Teaching philosophy</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-roles.html">
+    <a class="dropdown-item" href="../teaching/teaching-roles.html">
  <span class="dropdown-text">Teaching roles and responsibilities</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-impact.html">
+    <a class="dropdown-item" href="../teaching/teaching-impact.html">
  <span class="dropdown-text">Teaching impact</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./teaching/teaching-materials.html">
+    <a class="dropdown-item" href="../teaching/teaching-materials.html">
  <span class="dropdown-text">Example teaching materials</span></a>
   </li>  
     </ul>
   </li>
   <li class="nav-item">
-    <a class="nav-link" href="./game-shows.html"> 
+    <a class="nav-link" href="../game-shows.html"> 
 <span class="menu-text">Game shows</span></a>
   </li>  
 </ul>
@@ -143,21 +178,45 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#its-pretty-easy-on-linux-actually" id="toc-its-pretty-easy-on-linux-actually" class="nav-link active" data-scroll-target="#its-pretty-easy-on-linux-actually">It’s pretty easy on Linux, actually</a></li>
+  <li><a href="#its-also-pretty-easy-on-windows" id="toc-its-also-pretty-easy-on-windows" class="nav-link" data-scroll-target="#its-also-pretty-easy-on-windows">It’s also pretty easy on Windows</a></li>
+  <li><a href="#meanwhile-for-macs" id="toc-meanwhile-for-macs" class="nav-link" data-scroll-target="#meanwhile-for-macs">Meanwhile, for Macs…</a>
+  <ul class="collapse">
+  <li><a href="#make-your-mac-forget-that-r-is-already-installed" id="toc-make-your-mac-forget-that-r-is-already-installed" class="nav-link" data-scroll-target="#make-your-mac-forget-that-r-is-already-installed">Make your Mac “forget” that R is already installed</a></li>
+  <li><a href="#install-the-new-version-of-r-as-usual" id="toc-install-the-new-version-of-r-as-usual" class="nav-link" data-scroll-target="#install-the-new-version-of-r-as-usual">Install the new version of R as usual</a></li>
+  <li><a href="#switch-the-active-version" id="toc-switch-the-active-version" class="nav-link" data-scroll-target="#switch-the-active-version">Switch the <em>active</em> version</a></li>
+  <li><a href="#accessing-r-packages" id="toc-accessing-r-packages" class="nav-link" data-scroll-target="#accessing-r-packages">Accessing R packages</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Monica Thieu on the internet</h1>
-</div>
+<h1 class="title">How to install and switch between multiple R versions on a Mac</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">hacks</div>
+    <div class="quarto-category">r</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 21, 2024</p>
+    </div>
+  </div>
   
     
   </div>
@@ -167,12 +226,69 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>I am a postdoctoral fellow at <strong>Emory University,</strong> studying how we process and conceptualize different types of emotional experiences.</p>
-<p>I use primarily <strong>R</strong> for my own data analysis and teach R so others might use it as well.</p>
-<p>Welcome to my <a href="https://github.com/rstudio/blogdown"><code>quarto</code></a>-powered website! Please take a look around.</p>
-<p><img src="misc-files/name_handwritten_small_white.png" class="img-fluid"></p>
+<p>Every time I start a new analysis project, I like to try to start it on the newest available version of R so I can benefit from all those nice updates. (Additionally, some packages update their minimum compatible R version so not only do I get the newest version of R, I also get it to play most nicely with the newest version of packages!)</p>
+<p>However, R’s default installation behavior when you use a .pkg installer on Mac is to <em>uninstall all other installed versions of R.</em> Which is quite bad for reproducibility! If my analysis code pipelines are basically independent from one another, I ought to be able to have multiple versions of R installed at the same time and associate different versions of R with different project folders.</p>
+<p>Turns out, the framework (or the Framework… you’ll see) is already there! With a few additional steps, you too can become the master of versions. (And then you’ll have no excuse for starting your new R projects using that old, dusty R version…)</p>
+<blockquote class="blockquote">
+<p><strong>Conda is better because it already lets you install a different python version for each environment!</strong> It definitely does. Conda does this by installing a separate copy of the Python source code (and indeed all packages) in each environment. Python’s code base isn’t massive, so thankfully this doesn’t take up crazy amounts of storage. However, you can see that there are pros and cons to maintaining a machine-wide copy of software (as base R does) and prioritizing storage efficiency vs.&nbsp;multiple local copies and prioritizing flexibility (as conda does).</p>
+</blockquote>
+<section id="its-pretty-easy-on-linux-actually" class="level2">
+<h2 class="anchored" data-anchor-id="its-pretty-easy-on-linux-actually">It’s pretty easy on Linux, actually</h2>
+<p>If you’re running on <strong>Linux,</strong> the <a href="https://docs.posit.co/resources/install-r/#optional-install-multiple-versions-of-r">default R installer behavior</a> is to install R without uninstalling existing versions. How nice! As such, you should be able to install whichever additional versions you want without following any special instructions. Then follow the Linux section of <a href="https://support.posit.co/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE">these official Posit instructions</a> to change which version RStudio attempts to open.</p>
+</section>
+<section id="its-also-pretty-easy-on-windows" class="level2">
+<h2 class="anchored" data-anchor-id="its-also-pretty-easy-on-windows">It’s also pretty easy on Windows</h2>
+<p>If you’re running on <strong>Windows,</strong> <a href="https://forum.posit.co/t/install-multiple-r-versions-os-windows-10-and-use-them-to-cover-specific-reasons-inside-rstudiodesktop/36271">old forum posts</a> suggest that the default R installer behavior is also to install R without uninstalling existing versions. (Why does it only do it for Mac, then…?) According to the official Posit instructions linked above, you can hold down the Ctrl key when clicking the RStudio icon and a dialog box will appear asking you to choose which version of R to open RStudio with.</p>
+</section>
+<section id="meanwhile-for-macs" class="level2">
+<h2 class="anchored" data-anchor-id="meanwhile-for-macs">Meanwhile, for Macs…</h2>
+<p>Below, see the steps for maintaining and switching between simultaneously installed versions of R on a <strong>Mac.</strong></p>
+<p>These instructions were inspired by <a href="https://jacobrprice.github.io/2019/09/19/Installing-multiple-parallel-R-versions.html">Jacob Price’s blog post</a>, but updated given R/Mac OS changes over time.</p>
+<section id="make-your-mac-forget-that-r-is-already-installed" class="level3">
+<h3 class="anchored" data-anchor-id="make-your-mac-forget-that-r-is-already-installed">Make your Mac “forget” that R is already installed</h3>
+<p>As I mentioned before, the evil Mac .pkg installer for R will by default uninstall any other installed versions of R before installing the new one. It does this by checking through the Mac’s list of installed application packages and removing all folders listed as being installed with R.</p>
+<p>However, when the installer installs the files, it actually by default installs R into a <strong>MAJOR.MINOR</strong> version-specific subfolder of the R install folder. That means that, for example, R 4.3.2 is installed into a folder for R 4.3. R 4.4.0 would get installed into a folder for R 4.4, which does not require overwriting R 4.3.2.</p>
+<blockquote class="blockquote">
+<p><strong>Note:</strong> You cannot have multiple simultaneous versions of R with the same major and minor version but different patch numbers. For example, R 4.3.2 and R 4.0.0 simultaneously are okay, but R 4.3.2 and R 4.3.3 will overwrite each other’s files.</p>
+</blockquote>
+<p>Thus, the only thing you need to do to trick your Mac into not deleting other R versions is <em>to remove those R application files from the list of installed packages, without actually deleting the application files themselves.</em></p>
+<p>This way, when the new R installer runs, it doesn’t think there is any old version of R to uninstall.</p>
+<p>First, in a terminal, use the <code>pkgutil</code> command to list all of your Mac’s “known” app packages associated with R.</p>
+<pre class="{bash}"><code>pkgutil --pkgs='org.?-project*'</code></pre>
+<p>The <code>--pkgs</code> flag can take a regex string as shown above. This regex will find all packages that start with <code>org.r-project</code> <em>or</em> <code>org.R-project</code>. Yeah, the capital/lowercase R thing is annoying. Be careful!</p>
+<p>You’ll probably get the same package list as I did, but defer to what shows up on your own terminal (for example, if you’re running an Intel Mac instead of an Apple chip Mac.)</p>
+<p>Each of these files pertains to a different component of R’s underlying application package source, including the GUI, the source code, and associated LaTeX info. Now, once for each of the file names you see, run, for example:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> pkgutil <span class="at">--forget</span> org.R-project.arm64.R.GUI.pkg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You need to do this once for each of the files that are listed when you run <code>pkgutil --pkgs='org.?-project*'</code>. You can make sure you’ve gotten them all by checking that no packages show up when you run that command.</p>
+<p>Now, your Mac <em>thinks</em> R is no longer installed. But when you run:</p>
+<pre class="{bash}"><code>#| echo: true
+# These are the R versions that I have installed
+ls -lh /Library/Frameworks/R.framework/Versions</code></pre>
+<p>You should see that the folder for your existing R install is still there!</p>
+<p>You can <em>also</em> see when you <code>ls -l</code> the content of <code>/Library/Frameworks/R.framework/Versions</code> that the “Current” folder, which is what RStudio calls by default, is merely <em>symlinked</em> to a specific R version (see that arrow pointing to one of the version-specific R folders), as opposed to there being only one “Current” folder that is fully overwritten every time you install R. If you change which R version “Current” points to, you could change which version RStudio runs with!</p>
+</section>
+<section id="install-the-new-version-of-r-as-usual" class="level3">
+<h3 class="anchored" data-anchor-id="install-the-new-version-of-r-as-usual">Install the new version of R as usual</h3>
+<p>Now that you’ve made your Mac forget that R was ever there, you can run the new .pkg R installer and install freely.</p>
+<blockquote class="blockquote">
+<p>If you’re paying attention on the second screen of the .pkg installer, you will notice that it gives you <a href="https://cran.rstudio.org/doc/manuals/R-admin.html#Uninstalling-under-macOS">instructions</a> about how to “forget” the old R install if you want to stop the force-uninstall behavior. However, they don’t tell you every single pkgutil-listed package you need to <code>pkgutil --forget</code>. If you don’t forget all of the R-associated packages, the installer will overwrite <em>some</em> of the existing R application files, which renders the previous R version “incomplete” and unusable. That’s why you do need to check for every possible R-related package file using <code>pkgutil --pkgs</code>.</p>
+</blockquote>
+</section>
+<section id="switch-the-active-version" class="level3">
+<h3 class="anchored" data-anchor-id="switch-the-active-version">Switch the <em>active</em> version</h3>
+<p>I prefer the <a href="https://rud.is/rswitch/guide/">RSwitch</a> menu bar GUI utility for switching my active R version.</p>
+<p>If you want to be hardcore and do it without installing any extra software, <a href="https://support.posit.co/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE">the official Posit instructions</a> also tell you that you can manually <a href="https://ss64.com/mac/ln.html">symlink</a> the “Current” folder to the R version you want to use. For example, this will set me up to use R 4.3:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># remember, ln syntax puts source first, then link destination</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ln</span> <span class="at">-s</span> /Library/Frameworks/R.framework/Versions/4.3-arm64 /Library/Frameworks/R.framework/Versions/Current</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>However, the Posit instructions also mention that you can use RSwitch, so no need to be a hero and use command line to switch every time 😜</p>
+</section>
+<section id="accessing-r-packages" class="level3">
+<h3 class="anchored" data-anchor-id="accessing-r-packages">Accessing R packages</h3>
+<p>Each R version has a separate store for packages. (This makes total sense.) Once you’ve switched versions, how do you get the packages you need for the R version you’re working on? I <strong>strongly recommend</strong> using the <a href="https://rstudio.github.io/renv/articles/renv.html"><code>renv</code></a> package for managing R package environments. While renv does not handle R version switching for you (hence this blog post), its system for managing package stores already smoothly handles packages for different R versions. You can use renv as usual and you should notice no differences as long as you switch to the correct R version before opening your R project. (Conveniently, renv will throw a warning upon startup if the version of R detected is different than the version recorded in the lockfile. If you forget to switch R versions, you can close RStudio, switch the R version, and reopen it.)</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
