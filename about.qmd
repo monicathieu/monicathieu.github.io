@@ -2,7 +2,7 @@
 title: "About"
 ---
 
-![](headshot-mthieu-2024.jpg){width=50%}
+![](misc-files/headshot-mthieu-2024.jpg){width=50%}
 
 # Where I'm at.
 
