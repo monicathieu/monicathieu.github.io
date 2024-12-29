@@ -1,8 +1,15 @@
 ---
-title: "About"
+title: "About me"
+toc: false
+about:
+  template: solana
+  image: misc-files/headshot-mthieu-2024.jpg
+  image-shape: rounded
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/monicathieu
 ---
-
-![](misc-files/headshot-mthieu-2024.jpg){width=50%}
 
 # Where I'm at.
 
