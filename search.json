@@ -108,9 +108,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "personal-website-quarto",
+    "title": "Monica Thieu on the internet",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n1 + 1\n\n[1] 2"
+    "text": "I am a postdoctoral fellow at Emory University, studying how we process and conceptualize different types of emotional experiences.\nI use primarily R for my own data analysis and teach R so others might use it as well.\nWelcome to my quarto-powered website! Please take a look around."
   },
   {
     "objectID": "teaching/teaching-statement.html",
