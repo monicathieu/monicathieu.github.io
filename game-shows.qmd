@@ -2,10 +2,6 @@
 title: "Game shows"
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
 First things first...
 
 ![](game-shows-files/teamken_lightpen_blue.png){width=30% fig-alt="Team Ken light-pen writing sticker badge"}

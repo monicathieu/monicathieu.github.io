@@ -2,10 +2,6 @@
 title: "Research"
 ---
 
-```{r setup, include = FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
-
 # Participating in research studies
 
 In accordance with my IRB protocols, I do not advertise my own research studies on my website. However, if you're interested in participating in research in general there are many other studies you can take part in.
