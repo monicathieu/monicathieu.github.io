@@ -1,11 +1,11 @@
 ---
-title: "personal-website-quarto"
+title: "Monica Thieu on the internet"
 ---
 
-This is a Quarto website.
+I am a postdoctoral fellow at **Emory University,** studying how we process and conceptualize different types of emotional experiences.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+I use primarily **R** for my own data analysis and teach R so others might use it as well.
 
-```{r}
-1 + 1
-```
+Welcome to my [`quarto`](https://github.com/rstudio/blogdown)-powered website! Please take a look around.
+
+![](misc-files/name_handwritten_small_white.png)
