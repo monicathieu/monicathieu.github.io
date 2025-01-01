@@ -99,7 +99,7 @@ tibble(unit = 1:10) %>%
   geom_point(aes(color = factor(unit))) +
   geom_smooth(aes(color = factor(unit), fill = factor(unit)), method = "lm", formula = y ~ x) +
   geom_smooth(method = "lm", formula = y ~ x, color = "black") +
-  guides(color = FALSE, fill = FALSE) +
+  guides(color = "none", fill = "none") +
   labs(title = "Simpson's paradox is one reason we need to mind multilevel structure") +
   theme_bw()
 ```
