@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2024-12-19">
+
+<title>Monica Thieu, PhD - Migrating this website from blogdown to Quarto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Monica Thieu, PhD</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-statement.html">
+ <span class="dropdown-text">Teaching philosophy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-roles.html">
+ <span class="dropdown-text">Teaching roles and responsibilities</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-impact.html">
+ <span class="dropdown-text">Teaching impact</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-materials.html">
+ <span class="dropdown-text">Example teaching materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../game-shows.html"> 
+<span class="menu-text">Game shows</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#general-migration-process" id="toc-general-migration-process" class="nav-link active" data-scroll-target="#general-migration-process">General migration process</a>
+  <ul class="collapse">
+  <li><a href="#create-brand-new-repo-for-quarto-website" id="toc-create-brand-new-repo-for-quarto-website" class="nav-link" data-scroll-target="#create-brand-new-repo-for-quarto-website">Create brand-new repo for Quarto website</a></li>
+  <li><a href="#copy-old-rmd-page-content-into-new-qmd-files" id="toc-copy-old-rmd-page-content-into-new-qmd-files" class="nav-link" data-scroll-target="#copy-old-rmd-page-content-into-new-qmd-files">Copy old Rmd page content into new qmd files</a></li>
+  <li><a href="#copy-non-rendered-content-images-etc-into-folders" id="toc-copy-non-rendered-content-images-etc-into-folders" class="nav-link" data-scroll-target="#copy-non-rendered-content-images-etc-into-folders">Copy non-rendered content (images, etc) into folders</a></li>
+  <li><a href="#set-up-navigation-bar" id="toc-set-up-navigation-bar" class="nav-link" data-scroll-target="#set-up-navigation-bar">Set up navigation bar</a></li>
+  <li><a href="#use-a-built-in-quarto-layout-for-my-about-page" id="toc-use-a-built-in-quarto-layout-for-my-about-page" class="nav-link" data-scroll-target="#use-a-built-in-quarto-layout-for-my-about-page">Use a built-in Quarto layout for my About page</a></li>
+  <li><a href="#set-up-blog-posts-section" id="toc-set-up-blog-posts-section" class="nav-link" data-scroll-target="#set-up-blog-posts-section">Set up blog posts section</a>
+  <ul class="collapse">
+  <li><a href="#set-up-blog-listing-landing-page" id="toc-set-up-blog-listing-landing-page" class="nav-link" data-scroll-target="#set-up-blog-listing-landing-page">Set up blog listing landing page</a></li>
+  <li><a href="#set-up-folder-for-posts" id="toc-set-up-folder-for-posts" class="nav-link" data-scroll-target="#set-up-folder-for-posts">Set up folder for posts</a></li>
+  <li><a href="#migrate-blog-post-rmds-to-qmd" id="toc-migrate-blog-post-rmds-to-qmd" class="nav-link" data-scroll-target="#migrate-blog-post-rmds-to-qmd">Migrate blog post Rmds to qmd</a></li>
+  </ul></li>
+  <li><a href="#adding-my-vitae-cv-and-setting-it-not-to-render-with-quarto" id="toc-adding-my-vitae-cv-and-setting-it-not-to-render-with-quarto" class="nav-link" data-scroll-target="#adding-my-vitae-cv-and-setting-it-not-to-render-with-quarto">Adding my <code>vitae</code> cv (and setting it not to render with Quarto)</a></li>
+  </ul></li>
+  <li><a href="#hooking-it-into-the-interwebs" id="toc-hooking-it-into-the-interwebs" class="nav-link" data-scroll-target="#hooking-it-into-the-interwebs">Hooking it into the interwebs</a>
+  <ul class="collapse">
+  <li><a href="#setting-public-as-the-github-pages-root-directory" id="toc-setting-public-as-the-github-pages-root-directory" class="nav-link" data-scroll-target="#setting-public-as-the-github-pages-root-directory">Setting <code>public</code> as the GitHub Pages root directory</a></li>
+  <li><a href="#re-pointing-my-old-squarespace-domain-name" id="toc-re-pointing-my-old-squarespace-domain-name" class="nav-link" data-scroll-target="#re-pointing-my-old-squarespace-domain-name">Re-pointing my old Squarespace domain name</a>
+  <ul class="collapse">
+  <li><a href="#pointing-squarespace-dns-to-github-pages-url" id="toc-pointing-squarespace-dns-to-github-pages-url" class="nav-link" data-scroll-target="#pointing-squarespace-dns-to-github-pages-url">Pointing Squarespace DNS to GitHub Pages URL</a></li>
+  <li><a href="#get-github-pages-url-to-use-new-domain" id="toc-get-github-pages-url-to-use-new-domain" class="nav-link" data-scroll-target="#get-github-pages-url-to-use-new-domain">Get GitHub Pages URL to use new domain</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Migrating this website from blogdown to Quarto</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">quarto</div>
+    <div class="quarto-category">html</div>
+    <div class="quarto-category">hacks</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 19, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>From mid-2020 to late 2024, my personal website was built and rendered using the <a href="https://pkgs.rstudio.com/blogdown/">blogdown</a> package.</p>
+<p>In its first years (2016-ish to the spring of 2020, when I took advantage of some lockdown-induced free time to switch to blogdown), my personal website was built and hosted through <a href="https://www.squarespace.com/">Squarespace</a> and their point-and-click interface. Squarespace is incredibly powerful if you want more sophisticated site features (floating navbars, clicking and dragging to set up complex text box layouts, etc), but I always felt that it was a bit overkill feature-wise (and subscription-wise) for an aesthetically pleasing, yet ultimately information-light website. Further, I hadn’t integrated my Squarespace site with any blogging tools, so I wasn’t able to have much regularly updated content beyond adding things onto the CV section of my About Me page.</p>
+<p>I’d been thinking of moving to a self-maintained static site for a while, especially one that would easily let me post R Markdown blog posts to the internet. I’m happy to trade in a less impressive theme for blog post compatibility with R Markdown. In case others might want to read my R Markdown ramblings, I want to put them online!</p>
+<p>After a couple days of not insignificant headache, I got the website up and (mostly) running! Many of these headaches stemmed from the fact that blogdown is built on the <a href="https://gohugo.io">Hugo</a> static site generator–essentially, what blogdown does is provide an interface to knit R Markdown files to Hugo-compatible vanilla Markdown files, and <em>then</em> use Hugo to render those to a website of static HTMLs.</p>
+<p>If you stick with the default blogdown site theme, you’re basically good to go. However, if you want to use another Hugo theme that hasn’t already been pre-formatted for blogdown, or modify any page layouts, you are going to have a TIME learning Hugo if you’re not already a web developer (which I most certainly am not!).</p>
+<p>For a year or more now, I’ve been wanting to switch my website over to a different theme/layout. The theme I was using before, <a href="https://themes.gohugo.io/themes/hugo-theme-terminal/">Terminal</a>, was really nice and clean, but I had <em>such</em> a hard time updating any of the layouts to play nice with both Hugo and blogdown that I realized I was actively avoiding a big website overhaul because it felt so daunting to set aside the time to do it.</p>
+<p>However, I found myself with some free time during the 2024 winter holiday, and I thought–why don’t I try migrating my website over to a <a href="https://quarto.org/docs/websites/">Quarto website</a>? Since 2022, when the first stable version of Quarto was released, I had started playing with it instead of R Markdown just to see what it was like. I quickly found that Quarto was similar enough in syntax to R Markdown that I didn’t have to learn a whole new language from scratch. Further, Quarto’s different built-in rendering formats are… amazing. Without installing any additional packages to specially format, you can render a .qmd to a single-page document, interactive slides, or a multi-page static website!</p>
+<p>Finally, as I was Googling guides for moving a website from blogdown to Quarto, I saw multiple people whose blogs/R packages I’ve used before <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> had migrated in the same way, which convinced me!</p>
+<p>The blog posts I’ve referenced in the footnotes (and the posts they themselves reference) all do a great job of covering different strategies for migrating content over. I encourage you to check through those posts for more details. On this page, I’m going to be pretty brief about my general migration process, but I’ll go into a little more detail about specific features I finagled if I didn’t see them described better by someone else already.</p>
+<section id="general-migration-process" class="level1">
+<h1>General migration process</h1>
+<section id="create-brand-new-repo-for-quarto-website" class="level2">
+<h2 class="anchored" data-anchor-id="create-brand-new-repo-for-quarto-website">Create brand-new repo for Quarto website</h2>
+<p>First, I used the <a href="https://quarto.org/docs/websites/#quick-start">RStudio Quick Start</a> to create a template Quarto website in a separate project folder from my original blogdown website folder.</p>
+</section>
+<section id="copy-old-rmd-page-content-into-new-qmd-files" class="level2">
+<h2 class="anchored" data-anchor-id="copy-old-rmd-page-content-into-new-qmd-files">Copy old Rmd page content into new qmd files</h2>
+<p>Then, I copied over some of the simpler pages on my website, starting with the <a href="index.qmd">landing page</a> and <a href="about.qmd">about page</a>. These pages were written in R Markdown for my blogdown website, but I changed the file endings to <code>.qmd</code> to save them as Quarto Markdown instead. (This isn’t strictly necessary, as <a href="https://quarto.org/docs/websites/#render-targets">Quarto websites can still render Rmd source files</a>, but I figured it was a nice opportunity to update them.) These pages had no chunks of R code in them, so I didn’t have to alter any chunk syntax from Rmd to qmd. I only had to slightly alter the YAML headers to make sure they had the expected fields/field names.</p>
+<p>I organized the qmd files according to how I wanted the URL structure to come out. (For example, I put the sub-pages of my teaching portfolio into a folder called <code>teaching</code>, while my landing page, about page, research page, and game show pages are all in the project root folder.)</p>
+<p>As Andreas Handel<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> and Meghan Hall<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> describe, the way that blogdown (by way of Hugo) and Quarto transform source folder structure into web page structure are somewhat different. Quarto does it the “naive” way (the source folder structure gets directly translated into the website URL structure). Hugo does it differently (source content in Markdown files you want to render has to be in a <code>content</code> folder, while source content you want to publish as-is has to be in a parallel <code>static</code> folder, but the resulting URL structure combines across the two), which again, has been overkill for my needs.</p>
+</section>
+<section id="copy-non-rendered-content-images-etc-into-folders" class="level2">
+<h2 class="anchored" data-anchor-id="copy-non-rendered-content-images-etc-into-folders">Copy non-rendered content (images, etc) into folders</h2>
+<p>For any locally saved images I wanted to embed, I saved them into a sensible folder (either a page-dedicated folder like <code>research-files/</code> for files on my research page, or <code>misc-files/</code> for assorted images) and then embedded them using Markdown syntax, always making sure to link them using relative paths starting from the qmd location, not the project root (Markdown standard, not Quarto-specific).</p>
+</section>
+<section id="set-up-navigation-bar" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-navigation-bar">Set up navigation bar</h2>
+<p>This was the first point at which I found Quarto way easier to deal with than Hugo.</p>
+<p>Both website generators use a markup language config file (either YAML or TOML) to specify which pages appear on the navbar, and in what order.</p>
+<p>For me, <a href="https://gohugo.io/content-management/menus/">Hugo syntax</a> was/is major overkill here. Even though the Hugo theme I was using had a template navbar setup that I could copy and paste new entries for, I still felt like I had no idea what I was doing.</p>
+<p><a href="https://quarto.org/docs/websites/website-navigation.html">Quarto navbar setup</a> was <em>way</em> easier. At the core, the only required items to specify are which pages (using filenames–easy!) you want to put on the navbar, and in what order.</p>
+<p>I was able to put pages on my navbar in the same order as in my personal website pretty easily. I also used the <a href="https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation">hybrid top navbar + sub-sidebar setup</a> to add a sub-menu for the different components of my online teaching portfolio under the Teaching tab.</p>
+</section>
+<section id="use-a-built-in-quarto-layout-for-my-about-page" class="level2">
+<h2 class="anchored" data-anchor-id="use-a-built-in-quarto-layout-for-my-about-page">Use a built-in Quarto layout for my About page</h2>
+<p>As a little bonus, I found that Quarto comes with <a href="https://quarto.org/docs/websites/website-about.html">some pre-made templates for “about me” pages</a>. They’re super easy to use–they only require setting an option in the YAML header! (See if you can figure out which template I settled on.)</p>
+</section>
+<section id="set-up-blog-posts-section" class="level2">
+<h2 class="anchored" data-anchor-id="set-up-blog-posts-section">Set up blog posts section</h2>
+<section id="set-up-blog-listing-landing-page" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-blog-listing-landing-page">Set up blog listing landing page</h3>
+<p>Because I was setting up my blog as a component of a broader website, and not a standalone website, I did not use the RStudio Quick Start option for a Quarto blog, as that would have created the blog in a whole new project folder. Instead, I set up the necessary components manually, following the <a href="https://quarto.org/docs/websites/website-blog.html#home-page">Quarto docs.</a></p>
+<p>First, I created a qmd for the <a href="https://quarto.org/docs/websites/website-listings.html#overview">listing page</a> of blog posts that I wanted visitors to arrive at when they click the “Blog” link in the navbar. I named it <code>posts.qmd</code> (doesn’t really matter as long as you point the navbar to the right page in <code>_quarto.yml</code>) and copied and pasted the <a href="https://quarto.org/docs/websites/website-blog.html#home-page">example YAML header from the Quarto docs</a> into that page. I wanted the page to have the auto-generated listing and nothing else, so <code>posts.qmd</code> has only the YAML header in it. The options under the <code>listing:</code> YAML option are what direct Quarto to auto-generate a list of blog posts.</p>
+</section>
+<section id="set-up-folder-for-posts" class="level3">
+<h3 class="anchored" data-anchor-id="set-up-folder-for-posts">Set up folder for posts</h3>
+<p>The <code>contents:</code> sub-option of the <code>listing:</code> option allows you to specify which files show up in the listing page. I went with the example setup option: <code>contents: posts</code>, which puts every qmd in a folder called “posts” on the listing page.</p>
+<p>(This is similar to how Hugo behaves, but the difference is that Hugo basically forces you to use a folder called “posts”, while Quarto lets you arbitrarily specify what files/folders you want to include, using path/wildcard syntax.)</p>
+</section>
+<section id="migrate-blog-post-rmds-to-qmd" class="level3">
+<h3 class="anchored" data-anchor-id="migrate-blog-post-rmds-to-qmd">Migrate blog post Rmds to qmd</h3>
+<p>Here, I did basically the same thing as I did when transferring my other Rmds to qmd. I copied my old Rmd blog post source files into the <code>posts</code> subfolder of my new Quarto website, and edited the YAML headers to make sure all of the settings were Quarto-compatible. The only setting I really had to change was from the blogdown <code>tags:</code> option to the Quarto <code>categories</code> option for tagging blog posts.</p>
+<p>Because many of my blog post Rmds actually had executable R code, this time I made sure that all Rmd code chunks were re-written into Quarto syntax.</p>
+<p>I then set the <a href="https://quarto.org/docs/projects/code-execution.html#freeze"><code>execute: freeze:</code> option</a> to <code>auto</code> in the <code>_quarto.yml</code> website config file, so that blog posts (and all pages actually) with executable code would cache their outputs and not re-render unless the source file changed. That way large simulations don’t need to re-run!</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">execute</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">freeze</span><span class="kw">:</span><span class="at"> auto</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="adding-my-vitae-cv-and-setting-it-not-to-render-with-quarto" class="level2">
+<h2 class="anchored" data-anchor-id="adding-my-vitae-cv-and-setting-it-not-to-render-with-quarto">Adding my <code>vitae</code> cv (and setting it not to render with Quarto)</h2>
+<p>My CV document was previously written as R Markdown and rendered using the <a href="https://pkg.mitchelloharawild.com/vitae/index.html"><code>vitae</code> package</a>[^As of writing, vitae 0.6.0 has a bug that causes markdowncv templates not to render. I’m continuing to use 0.5.4 until that bug is fixed.] This rendering engine uses different themes than the Quarto website, so I had to make sure to tell Quarto <strong>not</strong> to render my CV as a regular website content page. Instead, I make sure to knit my CV page directly to HTML myself when I edit the Rmd.</p>
+<p>I followed <a href="https://quarto.org/docs/websites/#render-targets">Quarto’s instructions</a> for excluding my <code>cv.Rmd</code> from the auto-render, so that my custom-knitted vitae HTML wouldn’t get overwritten with Quarto’s version every time I re-render my website.</p>
+</section>
+</section>
+<section id="hooking-it-into-the-interwebs" class="level1">
+<h1>Hooking it into the interwebs</h1>
+<p>I followed the <a href="https://bookdown.org/yihui/blogdown/github-pages.html">GitHub Pages section</a> of the <code>blogdown</code> manual as a starting point to get the repo served at monicathieu.github.io . Then, I did a little extra finagling to get my old URL, monicathieu.com , to redirect to my new website.</p>
+<section id="setting-public-as-the-github-pages-root-directory" class="level2">
+<h2 class="anchored" data-anchor-id="setting-public-as-the-github-pages-root-directory">Setting <code>public</code> as the GitHub Pages root directory</h2>
+<p>I followed the instructions <a href="https://gist.github.com/cobyism/4730490">Coby Chapple’s GitHub Gist post</a> to create the <code>gh-pages</code> branch of my repository with a subfolder as the root directory of the other branch. This way, I could git-track the whole directory on the <code>master</code> branch, editing and rendering as usual, while treating the <code>public</code> subfolder as the root folder of my website so everything shows up properly when someone visits in a browser.</p>
+</section>
+<section id="re-pointing-my-old-squarespace-domain-name" class="level2">
+<h2 class="anchored" data-anchor-id="re-pointing-my-old-squarespace-domain-name">Re-pointing my old Squarespace domain name</h2>
+<p>To hook a GitHub Pages site to a custom domain name, you have to set up two steps:</p>
+<ol type="1">
+<li>Tell your domain name system (DNS) provider to point your domain name to your GitHub Pages URL</li>
+<li>Tell your GitHub Pages site to use a custom domain</li>
+</ol>
+<section id="pointing-squarespace-dns-to-github-pages-url" class="level3">
+<h3 class="anchored" data-anchor-id="pointing-squarespace-dns-to-github-pages-url">Pointing Squarespace DNS to GitHub Pages URL</h3>
+<p>The Squarespace website management feature that I opted to keep was <strong>domain name management.</strong> Squarespace allows you to buy an available domain name directly through their own site editor, so I’d previously bought monicathieu.com for my old website. I followed the instructions on Squarespace’s help pages to <a href="https://support.squarespace.com/hc/en-us/articles/215744668-Pointing-a-Squarespace-Domain">point my existing domain to a non-Squarespace site</a>, so that when you go to monicathieu.com, it shows you whatever’s hosted at monicathieu.github.io instead. This takes care of the first half of the domain connection.</p>
+</section>
+<section id="get-github-pages-url-to-use-new-domain" class="level3">
+<h3 class="anchored" data-anchor-id="get-github-pages-url-to-use-new-domain">Get GitHub Pages URL to use new domain</h3>
+<p>In order to complete the connection, I followed <a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site">GitHub’s instructions</a> to set www.monicathieu.com as the “custom domain” option in the GitHub Pages GUI settings for my repository, and then initialized the CNAME helper file in the <code>public</code> folder (so that to GitHub Pages, it looks like it’s in the root directory).</p>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://robjhyndman.com/hyndsight/quarto.html">Rob Hyndman</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://meghan.rbind.io/blog/2024-02-11-moving-to-quarto/">Meghan Hall</a>: She details other custom layout features she had to finagle, like using a custom layout for her blog post listing, to migrate her website content from blogdown to Quarto.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><a href="https://outsiderdata.blog/posts/2023-01-24_switching-to-quarto/2023-1-24_switching-to-quarto">Art Steinmetz of Outsider Data</a><a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://www.incidentalfindings.org/posts/2022-08-30_from-blogdown-to-quarto/">Joseph Chou of Incidental Findings</a>. His experience of Hugo themes’ blogdown compatibility breaking resonates with me, heh.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://www.andreashandel.com/posts/2022-10-01-hugo-to-quarto-migration/">Andreas Handel</a>: He also details several specific non-default features he had working on his old blogdown site that he re-implemented in Quarto.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p><a href="https://www.andreashandel.com/posts/2022-10-01-hugo-to-quarto-migration/">Andreas Handel</a>: He also details several specific non-default features he had working on his old blogdown site that he re-implemented in Quarto.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p><a href="https://meghan.rbind.io/blog/2024-02-11-moving-to-quarto/">Meghan Hall</a>: She details other custom layout features she had to finagle, like using a custom layout for her blog post listing, to migrate her website content from blogdown to Quarto.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/monicathieu\.github\.io\/personal-website-quarto\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

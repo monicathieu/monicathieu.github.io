@@ -3,7 +3,12 @@
     "listing": "/posts.html",
     "items": [
       "/posts/2024-05-21-multiple-r-versions.html",
-      "/posts/2024-05-20-conda-env-export-from-history.html"
+      "/posts/2024-05-20-conda-env-export-from-history.html",
+      "/posts/2021-07-29-cu-sipps-ggplot-aes.html",
+      "/posts/2021-05-28-intro-psych-brain-bingo/index.html",
+      "/posts/2020-11-12-nypd-ccrb-data/index.html",
+      "/posts/2020-08-15-prepare-teach-r-lesson.html",
+      "/posts/2020-04-08-tidy-multilevel/index.html"
     ]
   }
 ]

@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2020-08-15">
+<meta name="description" content="This is the outline for my 2020 NYC R Conference talk. Come on in!">
+
+<title>Monica Thieu, PhD - How to prepare and teach an R lesson</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Monica Thieu, PhD</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../posts.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../research.html"> 
+<span class="menu-text">Research</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-teaching" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Teaching</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-teaching">    
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-statement.html">
+ <span class="dropdown-text">Teaching philosophy</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-roles.html">
+ <span class="dropdown-text">Teaching roles and responsibilities</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-impact.html">
+ <span class="dropdown-text">Teaching impact</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../teaching/teaching-materials.html">
+ <span class="dropdown-text">Example teaching materials</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../game-shows.html"> 
+<span class="menu-text">Game shows</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#notes-for-readers" id="toc-notes-for-readers" class="nav-link active" data-scroll-target="#notes-for-readers">Notes for readers</a></li>
+  <li><a href="#why-this-talk" id="toc-why-this-talk" class="nav-link" data-scroll-target="#why-this-talk">Why this talk?</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#lesson-construction-using-backward-design" id="toc-lesson-construction-using-backward-design" class="nav-link" data-scroll-target="#lesson-construction-using-backward-design">Lesson construction using backward design</a>
+  <ul class="collapse">
+  <li><a href="#what-is-backward-design" id="toc-what-is-backward-design" class="nav-link" data-scroll-target="#what-is-backward-design">What is backward design?</a></li>
+  <li><a href="#define-outcomes" id="toc-define-outcomes" class="nav-link" data-scroll-target="#define-outcomes">Define outcomes</a></li>
+  <li><a href="#define-evidence-of-learning" id="toc-define-evidence-of-learning" class="nav-link" data-scroll-target="#define-evidence-of-learning">Define evidence of learning</a>
+  <ul class="collapse">
+  <li><a href="#formative-assessment-more-smaller-tests" id="toc-formative-assessment-more-smaller-tests" class="nav-link" data-scroll-target="#formative-assessment-more-smaller-tests">Formative assessment: more smaller tests</a></li>
+  <li><a href="#tidy-formative-assessments" id="toc-tidy-formative-assessments" class="nav-link" data-scroll-target="#tidy-formative-assessments">Tidy formative assessments</a></li>
+  <li><a href="#multiple-choice-check-ins-scale-pretty-well" id="toc-multiple-choice-check-ins-scale-pretty-well" class="nav-link" data-scroll-target="#multiple-choice-check-ins-scale-pretty-well">Multiple choice check-ins scale pretty well</a></li>
+  </ul></li>
+  <li><a href="#build-lesson" id="toc-build-lesson" class="nav-link" data-scroll-target="#build-lesson">Build lesson</a></li>
+  </ul></li>
+  <li><a href="#deliver-the-lesson" id="toc-deliver-the-lesson" class="nav-link" data-scroll-target="#deliver-the-lesson">Deliver the lesson</a></li>
+  <li><a href="#in-summary" id="toc-in-summary" class="nav-link" data-scroll-target="#in-summary">In summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">How to prepare and teach an R lesson</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">tidyverse</div>
+    <div class="quarto-category">tutorial</div>
+    <div class="quarto-category">teaching</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    This is the outline for my 2020 NYC R Conference talk. Come on in!
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">August 15, 2020</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="notes-for-readers" class="level1">
+<h1>Notes for readers</h1>
+<p>This blog post contains a written version of my speaker notes for my 20-minute 2020 NYC R conference talk. Since the talk time is on the shorter side, I trimmed a few things out of the talk that I would have liked to include with more time. The speaker notes for the unabridged version are included here for your reference.</p>
+</section>
+<section id="why-this-talk" class="level1">
+<h1>Why this talk?</h1>
+<p>Nobody is born knowing how to code. All programmers must start somewhere, and we’re all constantly learning. If you <em>ever</em> find yourself entrusted with the responsibility to train others to program, from informal tutoring all the way up to running a workshop, you and your learners will benefit from you knowing how to teach.</p>
+<p>Teaching well promotes equity as well. While we have a long way to go toward equal access and representation in technical professions, any chance you get to teach well is a chance to level one of the many uneven playing fields people may encounter on the way to a career in data science or scientific computing. Teach effectively and lower those barriers.</p>
+<p>So let’s get into it!</p>
+</section>
+<section id="objectives" class="level1">
+<h1>Objectives</h1>
+<p>By the end of my talk, you will be able to:</p>
+<ul>
+<li>Compare principles of <em>backward lesson design</em> to principles of good coding</li>
+<li>Apply backward design to outline objectives, tests, and content of an R lesson</li>
+<li>Implement formative coding assessments to check learner understanding</li>
+<li>Describe benefits of narrated live-coding</li>
+</ul>
+</section>
+<section id="lesson-construction-using-backward-design" class="level1">
+<h1>Lesson construction using backward design</h1>
+<section id="what-is-backward-design" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-backward-design">What is backward design?</h2>
+<p>When writing code, be it a helper function, a data processing script, or a whole package, there’s a common logical order we follow.</p>
+<ol type="1">
+<li>Define function output</li>
+<li>Write unit test</li>
+<li>Write function code</li>
+</ol>
+<p>Writing the code itself ideally comes <em>last.</em> We can only write the code once we know what it’s supposed to do, and how we’ll verify that. If you started writing code before you decided what it was supposed to do, the code would go nowhere!</p>
+<p>Backward design takes that same logic and applies it to teaching. The “usual” method of planning lessons starting from activities and demonstrations can be referred to as “forward design.” If planning lessons starting from activities is “forward design”, then <strong>backward design</strong> involves the following steps:</p>
+<ol type="1">
+<li>Define learning outcomes</li>
+<li>Define evidence of learning</li>
+<li>Build lesson</li>
+</ol>
+<p>This looks a lot like the logical process of coding. Both coding logic and backward lesson design aim to answer the following questions, in order:</p>
+<ol type="1">
+<li>What should code/learners be able to do?</li>
+<li>How will we know code/learners can do that?</li>
+<li>How will we equip code/learners with the ability to do that?</li>
+</ol>
+<p>You already know this logic! Lesson planning is conceptually similar to writing code. You don’t need to acquire a whole new knowledge base from scratch to be able to plan R lessons. You only need to learn how to relate concepts from coding logic to backward lesson design, and that’s exactly what we’re going to do.</p>
+<p>Next, we’ll dig more into each of these three steps of backward design as they might manifest in an R coding lesson.</p>
+</section>
+<section id="define-outcomes" class="level2">
+<h2 class="anchored" data-anchor-id="define-outcomes">Define outcomes</h2>
+<p>Defining the learning outcome, or objective (used interchangeably from here on out), is conceptually similar to defining the output of a function, script, or entire package that one might write. It’s the answer to the following question:</p>
+<p><strong>What will learners be able to <em>do</em> when the lesson is finished?</strong></p>
+<p>You have to be <em>specific</em> when spelling out learning goals for them to be most effective. Just like it’s harder to write a function when you haven’t delineated what you want it to do, it’s harder to prepare a lesson when you haven’t outlined what you want it to teach.</p>
+<p>Less specific (worse):</p>
+<blockquote class="blockquote">
+<p>Learners will understand how tidyr, dplyr, and ggplot2 help them clean and explore their data</p>
+</blockquote>
+<p>More specific (better):</p>
+<blockquote class="blockquote">
+<p>Learners will be able to:</p>
+<ul>
+<li>use tidyr’s pivot_wider() and pivot_longer() to reshape data for easier analysis</li>
+<li>use dplyr’s group_by(), count(), and summarize() functions to generate summary statistics</li>
+<li>use ggplot2 to generate exploratory scatterplots of data</li>
+</ul>
+</blockquote>
+<p>A few tips on making your R lesson objectives more specific and effective:</p>
+<ul>
+<li>Use active verbs. “Learners will be able to use … to …” is a good starter</li>
+<li>If you’re focusing on a specific package, name that package</li>
+<li>If you’re focusing on specific functions, name those functions</li>
+<li>Make it more verbose (but don’t go overboard!)</li>
+</ul>
+<p>Note: Most learning goals in lessons about R will be to “use” or “implement” certain functions or techniques. However, depending on the topic, the goal may be something lower, like to “recognize” or “recall” which function does what, or something higher, like to “evaluate” or “critique” code for style and speed. If you’re interested in reading more about the different types of learning goals one might set for a lesson, and which one best fits the level of learning you want, <a href="https://www.celt.iastate.edu/teaching/effective-teaching-practices/revised-blooms-taxonomy/">Bloom’s Revised Taxonomy</a> is a helpful framework.</p>
+</section>
+<section id="define-evidence-of-learning" class="level2">
+<h2 class="anchored" data-anchor-id="define-evidence-of-learning">Define evidence of learning</h2>
+<p>Once you’ve outlined your desired learning objectives, the next step is to define <em>acceptable evidence of learning.</em> How will you determine that learners can indeed accomplish what the learning objective says they can?</p>
+<p>Again, in programming and teaching, we must <em>test</em> to confirm that our code (or our learners) have accomplished the objective.</p>
+<p>In coding, this can be as simple as running your code multiple times under different conditions to make sure the output looks right, or as elaborate as a full unit testing system (we’ll touch on this later!).</p>
+<p>In a semester-long programming course, this would be the final assignment or exam. In a 5-minute tutoring session, this might involve watching your colleague write code that solves the problem they came to you for. In every case, the only way we can know that learners have reached the objective is by <em>testing their ability to demonstrate it.</em></p>
+<p>Note: the final assessment example below was omitted from the talk for time.</p>
+<p>For example, the final test for a lesson with the learning objectives shown above might be:</p>
+<blockquote class="blockquote">
+<p>The Orange dataset in R’s datasets package contains data for the ages (in days) and circumferences (in mm) of several orange trees, each measured at different timepoints.</p>
+<ol type="1">
+<li>Use the appropriate pivot (_wider or _longer) function to pivot the data to have one row for each measurement, one column for the age of each tree, and one column for the circumference of each tree.</li>
+<li>Using the long form of the data, generate a dataframe showing the number of measurements for each tree.</li>
+<li>Using the long form of the data, generate a dataframe showing the minimum and maximum age and circumference for each tree.</li>
+<li>Using appropriate ggplot2 functions, generate a scatterplot of tree circumference by age. Plot lines connecting the observations for each tree. The points and lines for each tree should be different colors. Add an informative title and axis labels.</li>
+</ol>
+</blockquote>
+<p>There doesn’t have to be one test question for each objective, but it’s a good place to start to make sure you have appropriate coverage. Just like you want high code coverage when testing your own code, you want high objective coverage with your final assessment, to ensure that you’re testing learners’ ability to execute every objective that you want them to accomplish. No matter how many prompts you include in your assessment, make sure that tests are written specifically enough that a learner who has reached the objective would be able to answer every question acceptably. Vague prompts don’t “give away the answer,” they give enough information for learners to get to the answer.</p>
+<p>There can (and often should) be a back-and-forth process between defining learning outcomes and defining tests of learning. Sometimes, you might find that your test isn’t testing exactly what you think learners should be able to do. You might add more to your test, or change what’s already in it, so that it better fits the learning outcome. Other times, you might have a sense that the test itself correctly expresses what you want learners to come away with. In those cases, you might re-write the learning outcome so that it better fits the test. The key is to plan with intention either way.</p>
+<section id="formative-assessment-more-smaller-tests" class="level3">
+<h3 class="anchored" data-anchor-id="formative-assessment-more-smaller-tests">Formative assessment: more smaller tests</h3>
+<p>The final assessment is of course essential to determining whether learners have met your objective. But, by design, it happens at the <em>end</em> of the lesson. What if learners make critical mistakes on the final assessment, showing that they haven’t actually reached the objective? At that point, the lesson is over, and you don’t have any time remaining to get learners back on track. :(</p>
+<p>Enter formative assessment! When teaching, you have many chances to assess learning <em>before you get to the end of the lesson.</em> <strong>Formative assessments</strong> are <em>frequent</em> and <em>specific</em> tests of learner understanding <em>during teaching.</em></p>
+<p><a href="cmu.edu/teaching/assessment/basics/formative-summative.html">Formative assessments</a> in teaching are like <a href="https://r-pkgs.org/tests.html">unit tests</a> in coding:</p>
+<ul>
+<li>both identify bugs in learner understanding/code functionality</li>
+<li>both are built-in to the teaching/development process</li>
+<li>both enable in-the-moment remediation/debugging</li>
+<li>both encourage more effective lesson/code style (more on this later)</li>
+<li>if learners/code fail, it’s on the road to getting it right next time!</li>
+</ul>
+<p>How do you implement formative assessments? Consider the example lesson we’ve started mocking up. In this lesson, to teach toward the second objective, we might calculate means and standard deviations of petal/sepal lengths and widths in the <code>iris</code> dataset. We would live-code this chunk and learners would follow along. The final code, and its finished output, might look something like below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>species,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"part"</span>, <span class="st">".value"</span>),</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, part) <span class="sc">%&gt;%</span> </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+# Groups:   species [3]
+  species    part  length_mean length_sd width_mean width_sd
+  &lt;fct&gt;      &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+1 setosa     petal        1.46     0.174      0.246    0.105
+2 setosa     sepal        5.01     0.352      3.43     0.379
+3 versicolor petal        4.26     0.470      1.33     0.198
+4 versicolor sepal        5.94     0.516      2.77     0.314
+5 virginica  petal        5.55     0.552      2.03     0.275
+6 virginica  sepal        6.59     0.636      2.97     0.322</code></pre>
+</div>
+</div>
+<p>The pipe chain above contains four functions. If a learner makes an error in calling any one of these functions, the entire pipe chain would fail. Thus, when we ask learners to write the whole block of code only once at the end of the module, it’s less obvious where an error might come from, both to instructors and learners.</p>
+<p>For example, if a learner wrote the following answer:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>species,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"part"</span>, <span class="st">".value"</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Species, part) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `group_by()`:
+! Must group by variables found in `.data`.
+✖ Column `Species` is not found.</code></pre>
+</div>
+</div>
+<p>An experienced instructor can read the error message and deduce that the error occurs inside of <code>group_by()</code>, and is likely to be a misspelling bug (or, perhaps more likely, was carried over from a version of the code where the column names were not coerced to lowercase). However, this error message may be opaque to the learner, and does little to help them identify their mistake themselves.</p>
+<p>Further, this test requires the instructor to exert extra effort to trace the error. If multiple learners make unique errors in writing this block of code, the instructor must now take even more time to correct each learner’s unique mistake. Learners must also spend time waiting for the instructor, instead of progressing.</p>
+</section>
+<section id="tidy-formative-assessments" class="level3">
+<h3 class="anchored" data-anchor-id="tidy-formative-assessments">Tidy formative assessments</h3>
+<p>The function chains encouraged by tidyverse style lend themselves to regular formative assessments. Formative assessment check-ins can built in to the lesson after every function in the pipe chain is introduced.</p>
+<p>We can reformat the code chunk above to have a formative assessment check-in for each verb. For example, here’s a couple ways we might test learners’ understanding of what named functions do inside of <code>summarize(across())</code>. We start with the block of code that learners will have already successfully written and run:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>iris_long <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>species,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"part"</span>, <span class="st">".value"</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(species, part)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then, we might give specific instructions to write one additional line of code from scratch to summarize <code>iris_long</code> in a particular way.</p>
+<blockquote class="blockquote">
+<p>Using <code>across()</code> inside <code>summarize()</code>, write a line of code to summarize the mean and SD of all possible measurements (length and width) for each iris species and anatomical part. Your output should have summary columns with “mean” or “sd” appended to them depending on what metric they are.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CODE GOES HERE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, we might provide sample code that learners can modify in a specific way to demonstrate learning of a bite-size concept. While this requires learners to generate less code from scratch, it can be faster during a lesson.</p>
+<blockquote class="blockquote">
+<p>Change the <code>summarize()</code> call on line 104 so the mean outputs have the suffix “_avg” instead of “_mean”.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>iris_long <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> mean, <span class="at">sd =</span> sd)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'species'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 6
+# Groups:   species [3]
+  species    part  length_mean length_sd width_mean width_sd
+  &lt;fct&gt;      &lt;chr&gt;       &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;    &lt;dbl&gt;
+1 setosa     petal        1.46     0.174      0.246    0.105
+2 setosa     sepal        5.01     0.352      3.43     0.379
+3 versicolor petal        4.26     0.470      1.33     0.198
+4 versicolor sepal        5.94     0.516      2.77     0.314
+5 virginica  petal        5.55     0.552      2.03     0.275
+6 virginica  sepal        6.59     0.636      2.97     0.322</code></pre>
+</div>
+</div>
+<p>Checking for understanding after each new verb in the pipe chain has a few benefits:</p>
+<ul>
+<li>Learners get a natural pause after each new concept is introduced, to solidify understanding before adding more info</li>
+<li>When fewer lines of code are tested at once, learners’ misconceptions/mistakes are more likely to overlap, allowing the instructor to address confusions with the whole group, instead of one-on-one</li>
+<li>Each check-in can be repeated until 100% of learners pass, ensuring that when the next function is introduced, learners will all be caught up</li>
+</ul>
+</section>
+<section id="multiple-choice-check-ins-scale-pretty-well" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-choice-check-ins-scale-pretty-well">Multiple choice check-ins scale pretty well</h3>
+<p>The above check-in is written as a free-response prompt to “write code that does the job”. In small learner groups, this is the most flexible way to check for understanding. If they can write working code, then they’ve met the learning objective! However, this does require that the instructor either trust that everyone’s code works, or visually check each learner’s work to confirm the code behaves as intended. This can be time-consuming for larger groups.</p>
+<p>There are other methods of formative assessment check-in that, while less comprehensive, scale much better to large groups of learners. My favorite of these are multiple choice questions:</p>
+<blockquote class="blockquote">
+<p>Which of the chunks below will correctly return summarized mean and SD outputs, where the mean columns have the suffix “_avg”?</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>iris_long <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">mean =</span> avg, <span class="at">sd =</span> sd)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>iris_long <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="fu">across</span>(<span class="fu">everything</span>(), <span class="fu">list</span>(<span class="at">avg =</span> mean, <span class="at">sd =</span> sd)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>These can be implemented by copying screenshots or code text into an audience-response system like Poll Everywhere or Socrative (those two I know about because they’re geared to educators, but any polling app works!). Then, the instructor can quickly look at poll responses and gauge how many learners are choosing the correct answer.</p>
+<p>Further, the <a href="https://validatedlearning.co/the-logic-behind-outstanding-multiple-choice-questions-for-formative-evaluation/">distractor (incorrect) answers</a> can also reveal specific misconceptions nearly as well as free-response check-ins. Write distractor answers to look <em>plausible,</em> featuring common mistakes. (Perhaps a mistake you once made when you were learning how to use this function!)</p>
+<p>In this way, you know that learners are choosing the correct answer because they believe it is the right answer, and not because they believe all the other answers must be wrong. (In the second scenario, a learner might pass a check-in without actually learning the concept at hand!)</p>
+<p>Additionally, to the previous point, do not write “trick” distractor answers, particularly those where <em>you have not yet shown learners why such a mistake is incorrect.</em> Testing learners on skills/concepts you haven’t taught them is a waste of testing time for you, and a waste of effort for learners.</p>
+</section>
+</section>
+<section id="build-lesson" class="level2">
+<h2 class="anchored" data-anchor-id="build-lesson">Build lesson</h2>
+<p>The beauty of backwards design is that once you’ve spelled out your learning objectives, and the tests you’ll use to verify that learners have reached those objectives, the lesson itself is nearly done. Ideally, once you’ve laid out your assessments, you will be able to see exactly what you need to demonstrate and explain to equip learners with enough knowledge to complete those assessments.</p>
+<p>The core principle I try to rely on when crafting lessons is to <strong>teach what you need to teach: no more and no less.</strong> What does this mean? This encompasses several things, including:</p>
+<p><em>Calibrate to learners’ incoming skill level.</em> What do you expect learners to be able to do already before they start your lesson? Start where learners currently are (don’t re-teach), and teach <em>everything</em> new that learners need to know to reach the objective (think through all the pre-reqs!).</p>
+<p><em>Allow your formative assessments to break the lesson into manageable chunks.</em> If you have implemented the right number and scope of checkpoints, each check-in question should serve as the end to a bite-sized (5-10 min) piece of lesson. These bites are a good size for you, because you get to take breaks from speaking and survey learners’ progress, and a good size for learners, because they get to take a breather from new information and use the check-in question to practice what they’ve just learned.</p>
+<p><em>Teach less than you think you have time for.</em> An instructor teaching a particular lesson for the first time is likely to find that the lesson simply takes way longer than originally planned. Running out of time before you’ve finished the lesson guarantees that learners won’t reach the objective! Plan for less time than you’ll actually have. The first time I teach a new lesson, I plan it for 2/3 of the allotted class time, and it usually comes out right.</p>
+<p><em>Teach <strong>one</strong> way to do things.</em> One of the great (and terrible) features of R is that there’s often many, many different ways to solve a problem. While some might be less verbose, more generalizable, etc., than others, ultimately sometimes you get to two different techniques that differ only on personal taste. For example, there might be two different ways to teach the <code>pivot_longer()</code> technique demonstrated earlier.</p>
+<p>Using <code>names_sep</code> to break up column names:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>species,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"part"</span>, <span class="st">".value"</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_sep =</span> <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 300 × 4
+   species part  length width
+   &lt;fct&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 setosa  sepal    5.1   3.5
+ 2 setosa  petal    1.4   0.2
+ 3 setosa  sepal    4.9   3  
+ 4 setosa  petal    1.4   0.2
+ 5 setosa  sepal    4.7   3.2
+ 6 setosa  petal    1.3   0.2
+ 7 setosa  sepal    4.6   3.1
+ 8 setosa  petal    1.5   0.2
+ 9 setosa  sepal    5     3.6
+10 setosa  petal    1.4   0.2
+# ℹ 290 more rows</code></pre>
+</div>
+</div>
+<p>Using <code>names_pattern</code> to break up column names:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename_with</span>(tolower) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>species,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_to =</span> <span class="fu">c</span>(<span class="st">"part"</span>, <span class="st">".value"</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>               <span class="at">names_pattern =</span> <span class="st">"(.*)</span><span class="sc">\\</span><span class="st">.(.*)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 300 × 4
+   species part  length width
+   &lt;fct&gt;   &lt;chr&gt;  &lt;dbl&gt; &lt;dbl&gt;
+ 1 setosa  sepal    5.1   3.5
+ 2 setosa  petal    1.4   0.2
+ 3 setosa  sepal    4.9   3  
+ 4 setosa  petal    1.4   0.2
+ 5 setosa  sepal    4.7   3.2
+ 6 setosa  petal    1.3   0.2
+ 7 setosa  sepal    4.6   3.1
+ 8 setosa  petal    1.5   0.2
+ 9 setosa  sepal    5     3.6
+10 setosa  petal    1.4   0.2
+# ℹ 290 more rows</code></pre>
+</div>
+</div>
+<p>In practice, there are valid arguments for using either method. Using <code>names_sep</code> to split along the period is less verbose, but is theoretically less flexible than spelling out the capture groups with <code>names_pattern</code>, in case there are future columns in the data that delimit with periods AND underscores.</p>
+<p>What is the learning goal here? If indeed a primary objective of the lesson is to be able to pivot many different arrangements of data, then students do need to learn about the similarities and differences between using <code>names_sep</code> and <code>names_pattern</code> to break up column names in service of the objective. However, if the objective is solely to be able to pivot data with multiple value columns using the <code>".value"</code> placeholder, then being able to compare, contrast, and choose between <code>names_sep</code> and <code>names_pattern</code> <em>is not part of the learning goal.</em> In this case, you as the instructor need to decide which technique you would rather students come away using, and <em>teach only that technique.</em></p>
+<p>Related to this point: <em>don’t teach first principles unless the learning goal is first principles.</em> I was guilty of this for a while! For example, when I used to teach vectorized operations like <code>apply()</code>, and later <code>map()</code>, I would lead with a whole section on for loops and why they were slow and unwieldy. When I learned how to take full advantage of R’s vectorized functions, I felt like I had woken up from a fog of for loops. I assumed this experience generalized to other people, and so when I taught those functions I would spend a lot of time making for loops sound like the black-and-white “before” section of an infomercial before the life-changing new product is revealed. However, I eventually received feedback that learners didn’t understand why I was spending so much time talking about for loops when I didn’t teach them, and some learners didn’t even know what for loops were before I mentioned them, so they were getting confused.</p>
+<p>While it is true that a first-principles comparison of for loops and vectorized functions is important to a full understanding of when vectorizing is and isn’t the best solution to a code problem, <em>understanding first-principles isn’t necessary to be able to correctly use a vectorized function.</em> Once I realized this, I was able to let go of a lesson module that was more nostalgic to me than instructive to learners.</p>
+<p>(I actually heard the above from Hadley Wickham! At Columbia I was lucky to be able to take Dr.&nbsp;Andrew Gelman’s Communicating Data course, where we heard from guest speakers like Hadley.)</p>
+</section>
+</section>
+<section id="deliver-the-lesson" class="level1">
+<h1>Deliver the lesson</h1>
+<p>All right, so you’ve sketched out your lesson objectives, checks for understanding, and lecture content. Time to teach! Most likely, you’ll teach via live-coding. You demonstrate the code example, and then learners apply what they’ve just seen you do. Occasionally you might find yourself using slides, but live-coding will cover most code instruction scenarios.</p>
+<p>Coding for an audience is a little different than coding for yourself. You gotta be intentional about it! Even when the audience is just one co-worker with their computer next to yours, intentional live-coding can spell the difference between following along with you vs not understanding. The single biggest tip I can give is:</p>
+<ul>
+<li><strong>Narrate <em>everything</em> you click or type.</strong> I mean everything. Every word you type. Every () and ““. Every hotkey shortcut. If you’re clicking, describe exactly what you’re clicking and where it is on screen. This helps in many respects, like:
+<ul>
+<li>it helps learners orient themselves in a program where they may not be super familiar with what buttons do</li>
+<li>it helps slow your pace down so that learners can keep up with you as they code along</li>
+<li>it helps model coding technique. If you use certain hotkeys to make your life easier, you can pass that along to students. And when you make typos (as we all do!), narrating when you catch and fix typos helps learners with one of the biggest implicit objectives of learning to code: to be able to troubleshoot.</li>
+</ul></li>
+</ul>
+<p>With the above, remember the lesson-building tip to <em>calibrate to learners’ existing skill level.</em> I encourage you to narrate less while typing code or demonstrating techniques that you know that your learners already have experience with. For example, when I’m working with less experienced learners, and I want to check a function’s documentation, I will announce that I am clicking over to the Help tab in the bottom-right pane of the RStudio window. With more experienced learners, I might just say “let’s check the function’s arguments in the docs” while clicking over to search the function’s docs in the Help tab.</p>
+<p>If you do find yourself teaching a group through live-coding, where your screen setup is projected or screen-shared so the whole group can see it, you’ll need to consider a few more things:</p>
+<ul>
+<li><strong>Keep an eye on the time.</strong> Check regularly to see how much time and how much lesson has elapsed, and calibrate accordingly.</li>
+<li><strong>Make your screen setup readable to learners.</strong> Zoom in enough, and check your color theme. With total novice learners, you may want to change your color theme back to the default, so that your screen looks more like theirs.</li>
+<li><strong>No copying and pasting code!</strong> You can (and often should) code along with notes you’ve already written, but learners have to type it out, so you do too.</li>
+</ul>
+<p>Note: <a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1006023">This paper</a> is a great reference for additional lesson delivery tips when teaching a proper programming course.</p>
+</section>
+<section id="in-summary" class="level1">
+<h1>In summary</h1>
+<p>I hope that you are now able to accomplish the <a href="#objectives">objectives</a> I set out at the beginning of this talk. Go forth and <em>effectively</em> train others in R!</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/monicathieu\.github\.io\/personal-website-quarto\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
