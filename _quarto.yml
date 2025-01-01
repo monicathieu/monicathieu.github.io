@@ -31,7 +31,7 @@ website:
 format:
   html:
     theme: 
-      - vapor
+      - pulse
       - custom.scss
     css: styles.css
     toc: true
