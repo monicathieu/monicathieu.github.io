@@ -1,0 +1,83 @@
+---
+title: "Exploring the NYPD Misconduct Complaint Database"
+date: 2020-11-12
+description: "This is the landing page for slides for my presentation with my colleague Paul Bloom."
+categories:
+  - R
+  - git
+  - tidyverse
+  - slides
+---
+
+```{r}
+#| label: setup
+#| include: false
+knitr::opts_chunk$set(
+  echo = FALSE
+)
+```
+
+My cohort-mate and fellow R wonk, [Paul Bloom](https://twitter.com/paul_a_bloom?lang=en), and I presented these slides for Columbia [Foundations for Research Computing](https://rcfoundations.research.columbia.edu). Our presentation focused on cleaning and plotting data on **civilian allegations of NYPD misconduct** from the [New York Civil Liberties Union](https://github.com/new-york-civil-liberties-union/NYPD-Misconduct-Complaint-Database).
+
+## The NYPD Misconduct Complaint Database
+
+![](https://upload.wikimedia.org/wikipedia/en/3/32/CCRB_logo.png)
+
+From the [NYCLU](https://www.nyclu.org/en/campaigns/nypd-misconduct-database):
+
+>The NYPD Misconduct Complaint Database is a repository of complaints made by the public on record at the Civilian Complaint Review Board (CCRB). These complaints span two distinct periods: the time since the CCRB started operating as an independent city agency outside the NYPD in 1994 and the prior period when the CCRB operated within the NYPD. The database includes 323,911 unique complaint records involving 81,550 active or former NYPD officers. The database does not include pending complaints for which the CCRB has not completed an investigation as of July 2020.
+
+## Our slides
+
+(For both of these slide previews, you can click inside and use the left & right arrow keys to navigate between slides.)
+
+[Part 1: Data Cleaning](https://monicathieu.github.io/cu-nypd-ccrb-data/cleaning.html#1)
+
+```{r}
+xaringanExtra::embed_xaringan(
+  url = "https://monicathieu.github.io/cu-nypd-ccrb-data/cleaning.html",
+  ratio = "16:9"
+)
+```
+
+
+[Part 2: Plotting](https://monicathieu.github.io/cu-nypd-ccrb-data/make_plots.html#1), with a focus on using [`ggalluvial`](https://cran.r-project.org/web/packages/ggalluvial/vignettes/ggalluvial.html) to visualize complaints as they are ruled on by the CCRB, and then by the NYPD itself
+
+```{r}
+xaringanExtra::embed_xaringan(
+  url = "https://monicathieu.github.io/cu-nypd-ccrb-data/make_plots.html",
+  ratio = "16:9"
+)
+```
+
+### Source code
+
+These slides were made with [`xaringan`](https://slides.yihui.org/xaringan/). They are hosted in [their own GitHub repo](https://github.com/monicathieu/cu-nypd-ccrb-data) should you like to clone the code yourself.
+
+They are packaged with an [`renv`](https://rstudio.github.io/renv/articles/renv.html) lockfile that should allow you to download all the dependency packages to run the code with a few commands. Please note that the project was written primarily in **R 4.0.3.** If you have R >= 4.0.0, `renv::restore()` should work smoothly to download our dependency packages, but if you have R 3.x.x you may not find it so easy (some of the dependency versions require 4.0.0 or above).
+
+### Hosting the slides and showing them on this page
+
+I used GitHub Pages' hosting capabilities to host the slides directly from the main repo.
+
+_Any_ GitHub repo can have its contents hosted and deployed using Pages. If it's a lightweight repo with only a couple HTML pages, as the `cu-nypd-ccrb-data` repo is, select the ["Deploy from a branch" option](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) in the Pages subsection of the repo settings. Leave the selected deploy branch on the default branch--no need for a second `gh-pages` branch in this case.
+
+The repo will deploy to **YOUR-USERNAME.github.io/REPO-NAME/**. The README will be rendered as the landing page by default if you don't have a file named `index.html`. Your slides will be in there at **YOUR-USERNAME.github.io/REPO-NAME/SLIDE-FILE-NAME.html**! You can now reference that global link in any other website. Here, I've iframed the slides in from their home repo to show up on this page.
+
+## A non-exhaustive list of related reports
+
+We are by _no_ means the only people to probe this data, or related older data. Please see the following for more:
+
+["Mission Failure: Civilian Review of Policing in New York City -- Summary of Findings", NYCLU, 2006](https://www.nyclu.org/en/mission-failure-civilian-review-policing-new-york-city-summary-findings)
+
+["Police Officers Rarely Disciplined by NYPD for Misconduct", WNYC, Aug 27 2014](https://www.wnyc.org/story/nypds-poor-track-record-meting-out-discipline-officer-misconduct/)
+
+["Newly Released Data Shows 1 Out Of Every 9 NYPD Officers Has A Confirmed Record Of Misconduct", Gothamist, July 28 2020](https://gothamist.com/news/nypd-police-ccrb-database-shows-confirmed-record-misconduct)
+
+["The NYPD Is Withholding Evidence From Investigations Into Police Abuse", ProPublica, Aug 17 2020](https://www.propublica.org/article/the-nypd-is-withholding-evidence-from-investigations-into-police-abuse)
+
+["Why The Majority Of NYPD Misconduct Complaints End Up 'Unsubstantiated'", Gothamist, August 18 2020](https://gothamist.com/news/why-the-majority-of-nypd-misconduct-complaints-end-up-unsubstantiated)
+
+["323,911 Accusations of N.Y.P.D. Misconduct Are Released Online", New York Times, Aug 20 2020](https://www.nytimes.com/2020/08/20/nyregion/nypd-ccrb-records-published.html)
+
+["What happened to NYPD officers who were charged with misconduct? They were promoted or paid more." Columbia Spectator, Sept 22 2020](https://www.columbiaspectator.com/news/2020/09/22/what-happened-to-nypd-officers-who-were-charged-with-misconduct-they-were-promoted-or-paid-more/)

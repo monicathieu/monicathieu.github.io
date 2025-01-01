@@ -1,0 +1,129 @@
+---
+title: "Migrating this website from blogdown to Quarto"
+date: 2024-12-19
+categories:
+  - R
+  - quarto
+  - html
+  - hacks
+draft: true
+---
+
+From mid-2020 to late 2024, my personal website was built and rendered using the [blogdown](https://pkgs.rstudio.com/blogdown/) package.
+
+In its first years (2016-ish to the spring of 2020, when I took advantage of some lockdown-induced free time to switch to blogdown), my  personal website was built and hosted through [Squarespace](https://www.squarespace.com/) and their point-and-click interface. Squarespace is incredibly powerful if you want more sophisticated site features (floating navbars, clicking and dragging to set up complex text box layouts, etc), but I always felt that it was a bit overkill feature-wise (and subscription-wise) for an aesthetically pleasing, yet ultimately information-light website. Further, I hadn't integrated my Squarespace site with any blogging tools, so I wasn't able to have much regularly updated content beyond adding things onto the CV section of my About Me page.
+
+I'd been thinking of moving to a self-maintained static site for a while, especially one that would easily let me post R Markdown blog posts to the internet. I'm happy to trade in a less impressive theme for blog post compatibility with R Markdown. In case others might want to read my R Markdown ramblings, I want to put them online!
+
+After a couple days of not insignificant headache, I got the website up and (mostly) running! Many of these headaches stemmed from the fact that blogdown is built on the [Hugo](https://gohugo.io) static site generator--essentially, what blogdown does is provide an interface to knit R Markdown files to Hugo-compatible vanilla Markdown files, and _then_ use Hugo to render those to a website of static HTMLs.
+
+If you stick with the default blogdown site theme, you're basically good to go. However, if you want to use another Hugo theme that hasn't already been pre-formatted for blogdown, or modify any page layouts, you are going to have a TIME learning Hugo if you're not already a web developer (which I most certainly am not!).
+
+For a year or more now, I've been wanting to switch my website over to a different theme/layout. The theme I was using before, [Terminal](https://themes.gohugo.io/themes/hugo-theme-terminal/), was really nice and clean, but I had _such_ a hard time updating any of the layouts to play nice with both Hugo and blogdown that I realized I was actively avoiding a big website overhaul because it felt so daunting to set aside the time to do it.
+
+However, I found myself with some free time during the 2024 winter holiday, and I thought--why don't I try migrating my website over to a [Quarto website](https://quarto.org/docs/websites/)? Since 2022, when the first stable version of Quarto was released, I had started playing with it instead of R Markdown just to see what it was like. I quickly found that Quarto was similar enough in syntax to R Markdown that I didn't have to learn a whole new language from scratch. Further, Quarto's different built-in rendering formats are... amazing. Without installing any additional packages to specially format, you can render a .qmd to a single-page document, interactive slides, or a multi-page static website!
+
+Finally, as I was Googling guides for moving a website from blogdown to Quarto, I saw multiple people whose blogs/R packages I've used before [^1][^2][^3][^4][^5] had migrated in the same way, which convinced me!
+
+The blog posts I've referenced in the footnotes (and the posts they themselves reference) all do a great job of covering different strategies for migrating content over. I encourage you to check through those posts for more details. On this page, I'm going to be pretty brief about my general migration process, but I'll go into a little more detail about specific features I finagled if I didn't see them described better by someone else already.
+
+[^1]: [Rob Hyndman](https://robjhyndman.com/hyndsight/quarto.html)
+
+[^2]: [Meghan Hall](https://meghan.rbind.io/blog/2024-02-11-moving-to-quarto/): She details other custom layout features she had to finagle, like using a custom layout for her blog post listing, to migrate her website content from blogdown to Quarto.
+
+[^3]: [Art Steinmetz of Outsider Data](https://outsiderdata.blog/posts/2023-01-24_switching-to-quarto/2023-1-24_switching-to-quarto)
+
+[^4]: [Joseph Chou of Incidental Findings](https://www.incidentalfindings.org/posts/2022-08-30_from-blogdown-to-quarto/). His experience of Hugo themes' blogdown compatibility breaking resonates with me, heh.
+
+[^5]: [Andreas Handel](https://www.andreashandel.com/posts/2022-10-01-hugo-to-quarto-migration/): He also details several specific non-default features he had working on his old blogdown site that he re-implemented in Quarto.
+
+# General migration process
+
+## Create brand-new repo for Quarto website
+
+First, I used the [RStudio Quick Start](https://quarto.org/docs/websites/#quick-start) to create a template Quarto website in a separate project folder from my original blogdown website folder.
+
+## Copy old Rmd page content into new qmd files
+
+Then, I copied over some of the simpler pages on my website, starting with the [landing page](index.qmd) and [about page](about.qmd). These pages were written in R Markdown for my blogdown website, but I changed the file endings to `.qmd` to save them as Quarto Markdown instead. (This isn't strictly necessary, as [Quarto websites can still render Rmd source files](https://quarto.org/docs/websites/#render-targets), but I figured it was a nice opportunity to update them.) These pages had no chunks of R code in them, so I didn't have to alter any chunk syntax from Rmd to qmd. I only had to slightly alter the YAML headers to make sure they had the expected fields/field names.
+
+I organized the qmd files according to how I wanted the URL structure to come out. (For example, I put the sub-pages of my teaching portfolio into a folder called `teaching`, while my landing page, about page, research page, and game show pages are all in the project root folder.)
+
+As Andreas Handel[^5] and Meghan Hall[^2] describe, the way that blogdown (by way of Hugo) and Quarto transform source folder structure into web page structure are somewhat different. Quarto does it the "naive" way (the source folder structure gets directly translated into the website URL structure). Hugo does it differently (source content in Markdown files you want to render has to be in a `content` folder, while source content you want to publish as-is has to be in a parallel `static` folder, but the resulting URL structure combines across the two), which again, has been overkill for my needs.
+
+## Copy non-rendered content (images, etc) into folders
+
+For any locally saved images I wanted to embed, I saved them into a sensible folder (either a page-dedicated folder like `research-files/` for files on my research page, or `misc-files/` for assorted images) and then embedded them using Markdown syntax, always making sure to link them using relative paths starting from the qmd location, not the project root (Markdown standard, not Quarto-specific).
+
+## Set up navigation bar
+
+This was the first point at which I found Quarto way easier to deal with than Hugo.
+
+Both website generators use a markup language config file (either YAML or TOML) to specify which pages appear on the navbar, and in what order.
+
+For me, [Hugo syntax](https://gohugo.io/content-management/menus/) was/is major overkill here. Even though the Hugo theme I was using had a template navbar setup that I could copy and paste new entries for, I still felt like I had no idea what I was doing.
+
+[Quarto navbar setup](https://quarto.org/docs/websites/website-navigation.html) was _way_ easier. At the core, the only required items to specify are which pages (using filenames--easy!) you want to put on the navbar, and in what order.
+
+I was able to put pages on my navbar in the same order as in my personal website pretty easily. I also used the [hybrid top navbar + sub-sidebar setup](https://quarto.org/docs/websites/website-navigation.html#hybrid-navigation) to add a sub-menu for the different components of my online teaching portfolio under the Teaching tab.
+
+## Use a built-in Quarto layout for my About page
+
+As a little bonus, I found that Quarto comes with [some pre-made templates for "about me" pages](https://quarto.org/docs/websites/website-about.html). They're super easy to use--they only require setting an option in the YAML header! (See if you can figure out which template I settled on.)
+
+## Set up blog posts section
+
+### Set up blog listing landing page
+
+Because I was setting up my blog as a component of a broader website, and not a standalone website, I did not use the RStudio Quick Start option for a Quarto blog, as that would have created the blog in a whole new project folder. Instead, I set up the necessary components manually, following the [Quarto docs.](https://quarto.org/docs/websites/website-blog.html#home-page)
+
+First, I created a qmd for the [listing page](https://quarto.org/docs/websites/website-listings.html#overview) of blog posts that I wanted visitors to arrive at when they click the "Blog" link in the navbar. I named it `posts.qmd` (doesn't really matter as long as you point the navbar to the right page in `_quarto.yml`) and copied and pasted the [example YAML header from the Quarto docs](https://quarto.org/docs/websites/website-blog.html#home-page) into that page. I wanted the page to have the auto-generated listing and nothing else, so `posts.qmd` has only the YAML header in it. The options under the `listing:` YAML option are what direct Quarto to auto-generate a list of blog posts.
+
+### Set up folder for posts
+
+The `contents:` sub-option of the `listing:` option allows you to specify which files show up in the listing page. I went with the example setup option: `contents: posts`, which puts every qmd in a folder called "posts" on the listing page.
+
+(This is similar to how Hugo behaves, but the difference is that Hugo basically forces you to use a folder called "posts", while Quarto lets you arbitrarily specify what files/folders you want to include, using path/wildcard syntax.)
+
+### Migrate blog post Rmds to qmd
+
+Here, I did basically the same thing as I did when transferring my other Rmds to qmd. I copied my old Rmd blog post source files into the `posts` subfolder of my new Quarto website, and edited the YAML headers to make sure all of the settings were Quarto-compatible. The only setting I really had to change was from the blogdown `tags:` option  to the Quarto `categories` option for tagging blog posts. 
+
+Because many of my blog post Rmds actually had executable R code, this time I made sure that all Rmd code chunks were re-written into Quarto syntax.
+
+I then set the [`execute: freeze:` option](https://quarto.org/docs/projects/code-execution.html#freeze) to `auto` in the `_quarto.yml` website config file, so that blog posts (and all pages actually) with executable code would cache their outputs and not re-render unless the source file changed. That way large simulations don't need to re-run!
+
+```yaml
+execute:
+  freeze: auto
+```
+
+## Adding my `vitae` cv (and setting it not to render with Quarto)
+
+My CV document was previously written as R Markdown and rendered using the [`vitae` package](https://pkg.mitchelloharawild.com/vitae/index.html)[^As of writing, vitae 0.6.0 has a bug that causes markdowncv templates not to render. I'm continuing to use 0.5.4 until that bug is fixed.] This rendering engine uses different themes than the Quarto website, so I had to make sure to tell Quarto **not** to render my CV as a regular website content page. Instead, I make sure to knit my CV page directly to HTML myself when I edit the Rmd.
+
+I followed [Quarto's instructions](https://quarto.org/docs/websites/#render-targets) for excluding my `cv.Rmd` from the auto-render, so that my custom-knitted vitae HTML wouldn't get overwritten with Quarto's version every time I re-render my website.
+
+# Hooking it into the interwebs
+
+I followed the [GitHub Pages section](https://bookdown.org/yihui/blogdown/github-pages.html) of the `blogdown` manual as a starting point to get the repo served at monicathieu.github.io . Then, I did a little extra finagling to get my old URL, monicathieu.com , to redirect to my new website.
+
+## Setting `public` as the GitHub Pages root directory
+
+I followed the instructions [Coby Chapple's GitHub Gist post](https://gist.github.com/cobyism/4730490) to create the `gh-pages` branch of my repository with a subfolder as the root directory of the other branch. This way, I could git-track the whole directory on the `master` branch, editing and rendering as usual, while treating the `public` subfolder as the root folder of my website so everything shows up properly when someone visits in a browser.
+
+## Re-pointing my old Squarespace domain name
+
+To hook a GitHub Pages site to a custom domain name, you have to set up two steps:
+
+1. Tell your domain name system (DNS) provider to point your domain name to your GitHub Pages URL
+1. Tell your GitHub Pages site to use a custom domain
+
+### Pointing Squarespace DNS to GitHub Pages URL
+
+The Squarespace website management feature that I opted to keep was **domain name management.** Squarespace allows you to buy an available domain name directly through their own site editor, so I'd previously bought monicathieu.com for my old website. I followed the instructions on Squarespace's help pages to [point my existing domain to a non-Squarespace site](https://support.squarespace.com/hc/en-us/articles/215744668-Pointing-a-Squarespace-Domain), so that when you go to monicathieu.com, it shows you whatever's hosted at monicathieu.github.io instead. This takes care of the first half of the domain connection.
+
+### Get GitHub Pages URL to use new domain
+
+In order to complete the connection, I followed [GitHub's instructions](https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site) to set www.monicathieu.com as the "custom domain" option in the GitHub Pages GUI settings for my repository, and then initialized the CNAME helper file in the `public` folder (so that to GitHub Pages, it looks like it's in the root directory).
+
