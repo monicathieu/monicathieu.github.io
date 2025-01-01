@@ -17,6 +17,8 @@ website:
       - research.qmd
       - sidebar:teaching
       - game-shows.qmd
+      - href: contact.qmd
+        text: Contact
 
   sidebar:
     - id: teaching

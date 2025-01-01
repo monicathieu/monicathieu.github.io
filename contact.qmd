@@ -1,0 +1,20 @@
+---
+title: "Contact me"
+title-block-banner: true
+---
+
+# Email
+
+For professional (academic or consulting) and media inquiries you can reach me at [mthieu -at- emory -dot- edu](mailto:mthieu@emory.edu).
+
+Unfortunately I cannot respond to fan mail, but I appreciate the thought!
+
+# Tipping (if you found my posts useful)
+
+I put coding tips and tutorials on my blog for free so that they can reach anyone who might find them useful! These blog posts do take a non-negligible amount of time to write. If my work has helped you in any way, I will happily accept a small tip if you have the financial resources.
+
+<script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script><script type='text/javascript'>kofiwidget2.init('Support Me on Ko-fi', '#ff6266', 'A0A5YCE59');kofiwidget2.draw();</script> 
+
+# Twitter
+
+I used to post about stats/science on occasion @[monica_too_](https://twitter.com/monica_too_), but I have stepped away from Twitter since it was taken private. :(
