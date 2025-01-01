@@ -2,6 +2,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/2024-12-29-setting-up-this-website.html",
       "/posts/2024-05-21-multiple-r-versions.html",
       "/posts/2024-05-20-conda-env-export-from-history.html",
       "/posts/2021-07-29-cu-sipps-ggplot-aes.html",

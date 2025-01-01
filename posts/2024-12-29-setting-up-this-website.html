@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2024-12-19">
+<meta name="dcterms.date" content="2024-12-29">
 
 <title>Monica Thieu, PhD - Migrating this website from blogdown to Quarto</title>
 <style>
@@ -203,7 +203,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#hooking-it-into-the-interwebs" id="toc-hooking-it-into-the-interwebs" class="nav-link" data-scroll-target="#hooking-it-into-the-interwebs">Hooking it into the interwebs</a>
   <ul class="collapse">
-  <li><a href="#setting-public-as-the-github-pages-root-directory" id="toc-setting-public-as-the-github-pages-root-directory" class="nav-link" data-scroll-target="#setting-public-as-the-github-pages-root-directory">Setting <code>public</code> as the GitHub Pages root directory</a></li>
   <li><a href="#re-pointing-my-old-squarespace-domain-name" id="toc-re-pointing-my-old-squarespace-domain-name" class="nav-link" data-scroll-target="#re-pointing-my-old-squarespace-domain-name">Re-pointing my old Squarespace domain name</a>
   <ul class="collapse">
   <li><a href="#pointing-squarespace-dns-to-github-pages-url" id="toc-pointing-squarespace-dns-to-github-pages-url" class="nav-link" data-scroll-target="#pointing-squarespace-dns-to-github-pages-url">Pointing Squarespace DNS to GitHub Pages URL</a></li>
@@ -235,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 19, 2024</p>
+      <p class="date">December 29, 2024</p>
     </div>
   </div>
   
@@ -308,16 +307,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="adding-my-vitae-cv-and-setting-it-not-to-render-with-quarto" class="level2">
 <h2 class="anchored" data-anchor-id="adding-my-vitae-cv-and-setting-it-not-to-render-with-quarto">Adding my <code>vitae</code> cv (and setting it not to render with Quarto)</h2>
 <p>My CV document was previously written as R Markdown and rendered using the <a href="https://pkg.mitchelloharawild.com/vitae/index.html"><code>vitae</code> package</a>[^As of writing, vitae 0.6.0 has a bug that causes markdowncv templates not to render. I’m continuing to use 0.5.4 until that bug is fixed.] This rendering engine uses different themes than the Quarto website, so I had to make sure to tell Quarto <strong>not</strong> to render my CV as a regular website content page. Instead, I make sure to knit my CV page directly to HTML myself when I edit the Rmd.</p>
-<p>I followed <a href="https://quarto.org/docs/websites/#render-targets">Quarto’s instructions</a> for excluding my <code>cv.Rmd</code> from the auto-render, so that my custom-knitted vitae HTML wouldn’t get overwritten with Quarto’s version every time I re-render my website.</p>
+<p>I followed <a href="https://quarto.org/docs/websites/#render-targets">Quarto’s instructions</a> for excluding my <code>cv.Rmd</code> from the auto-render, so that my custom-knitted vitae HTML wouldn’t get overwritten with Quarto’s version every time I re-render my website. However, cv.html still gets committed to the <code>gh-pages</code> branch for hosting, with all of the themed pages!</p>
 </section>
 </section>
 <section id="hooking-it-into-the-interwebs" class="level1">
 <h1>Hooking it into the interwebs</h1>
-<p>I followed the <a href="https://bookdown.org/yihui/blogdown/github-pages.html">GitHub Pages section</a> of the <code>blogdown</code> manual as a starting point to get the repo served at monicathieu.github.io . Then, I did a little extra finagling to get my old URL, monicathieu.com , to redirect to my new website.</p>
-<section id="setting-public-as-the-github-pages-root-directory" class="level2">
-<h2 class="anchored" data-anchor-id="setting-public-as-the-github-pages-root-directory">Setting <code>public</code> as the GitHub Pages root directory</h2>
-<p>I followed the instructions <a href="https://gist.github.com/cobyism/4730490">Coby Chapple’s GitHub Gist post</a> to create the <code>gh-pages</code> branch of my repository with a subfolder as the root directory of the other branch. This way, I could git-track the whole directory on the <code>master</code> branch, editing and rendering as usual, while treating the <code>public</code> subfolder as the root folder of my website so everything shows up properly when someone visits in a browser.</p>
-</section>
+<p>I followed the instructions in the <a href="https://quarto.org/docs/publishing/github-pages.html#publish-command">Quarto docs</a> to publish to GitHub Pages using the <code>quarto publish gh-pages</code> command in a terminal window from the Quarto docs project root folder. The first time the command ran, it created a <code>gh-pages</code> branch and then re-rendered and committed all my static files for serving at monicathieu.github.io . Nice! (If you’re curious about it, this process was again similar to but smoother than <a href="https://bookdown.org/yihui/blogdown/github-pages.html">pushing the necessary files to the <code>gh-pages</code> branch using blogdown/Hugo</a>. Importantly, <code>quarto publish gh-pages</code> takes care of the fact that only the rendered HTML files and the embedded images/etc need to get committed to <code>gh-pages</code>, not all of the other qmd/Rmd business.)</p>
+<p>Then, I did a little extra finagling to get my old URL, monicathieu.com , to redirect to my new website.</p>
 <section id="re-pointing-my-old-squarespace-domain-name" class="level2">
 <h2 class="anchored" data-anchor-id="re-pointing-my-old-squarespace-domain-name">Re-pointing my old Squarespace domain name</h2>
 <p>To hook a GitHub Pages site to a custom domain name, you have to set up two steps:</p>
@@ -331,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="get-github-pages-url-to-use-new-domain" class="level3">
 <h3 class="anchored" data-anchor-id="get-github-pages-url-to-use-new-domain">Get GitHub Pages URL to use new domain</h3>
-<p>In order to complete the connection, I followed <a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site">GitHub’s instructions</a> to set www.monicathieu.com as the “custom domain” option in the GitHub Pages GUI settings for my repository, and then initialized the CNAME helper file in the <code>public</code> folder (so that to GitHub Pages, it looks like it’s in the root directory).</p>
+<p>In order to complete the connection, I followed <a href="https://help.github.com/en/github/working-with-github-pages/managing-a-custom-domain-for-your-github-pages-site">GitHub’s instructions</a> to set www.monicathieu.com as the “custom domain” option in the GitHub Pages GUI settings for my repository. Then, instead of creating a new CNAME file per their instructions, I copied my existing CNAME file from my old personal website repo into the project root folder of my new website. Finally, I deleted the CNAME file from the <code>gh-pages</code> branch of my old website repo, so that there would be only one GitHub Pages website attempting to redirect to www.monicathieu.com .</p>
 
 
 </section>
