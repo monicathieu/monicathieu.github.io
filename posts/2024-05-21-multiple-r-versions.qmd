@@ -5,6 +5,7 @@ description: "It's really quite smooth... once you have it set up."
 categories:
   - hacks
   - r
+engine: knitr
 ---
 
 Every time I start a new analysis project, I like to try to start it on the newest available version of R so I can benefit from all those nice updates. (Additionally, some packages update their minimum compatible R version so not only do I get the newest version of R, I also get it to play most nicely with the newest version of packages!)
@@ -13,7 +14,7 @@ However, R's default installation behavior when you use a .pkg installer on Mac 
 
 Turns out, the framework (or the Framework... you'll see) is already there! With a few additional steps, you too can become the master of versions. (And then you'll have no excuse for starting your new R projects using that old, dusty R version...)
 
-> **Conda is better because it already lets you install a different python version for each environment!** It definitely does. Conda does this by installing a separate copy of the Python source code (and indeed all packages) in each environment. Python's code base isn't massive, so thankfully this doesn't take up crazy amounts of storage. However, you can see that there are pros and cons to maintaining a machine-wide copy of software (as base R does) and prioritizing storage efficiency vs. multiple local copies and prioritizing flexibility (as conda does).
+> **"Conda is better because it already lets you install a different python version for each environment!"** It definitely does. Conda does this by installing a separate copy of the Python source code (and indeed all packages) in each environment. Python's code base isn't massive, so thankfully this doesn't take up crazy amounts of storage. However, you can see that there are pros and cons to maintaining a machine-wide copy of software (as base R does) and prioritizing storage efficiency vs. multiple local copies and prioritizing flexibility (as conda does).
 
 ## It's pretty easy on Linux, actually
 
