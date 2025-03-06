@@ -97,6 +97,7 @@ tribble(
 ```{r}
 tribble(
   ~ Position, ~ Year, ~ Course, ~ Where,
+  "Guest lecturer", "Sp2025", "Research Skills Seminar", "Spelman RISE Biomedical Training Program",
   "Assistant curriculum developer & TA", "Sp2022", "PSYC 2821: Cognition in Context: Mental Health & Well-being", "Columbia Dept of Psychology",
   "Assistant curriculum developer, TA, & guest lecturer", "Sp2021", "PSYC 1021: Science of Psychology: Explorations & Applications", "Columbia Dept of Psychology",
   "Guest lecturer", "Fa2019", "[Intro to Psychology](https://www.outlier.org/products/intro-to-psychology)", "Outlier.org",
@@ -223,6 +224,7 @@ tribble(
 ```{r}
 tribble(
   ~ Name, ~ Year, ~ Where, ~ Position, ~ Awards,
+  "Meera Sethi", "2024 - 2025", "Emory University", "Undergraduate research assistant", "",
   "Lauren Wilkins", "2020 - 2022", "Columbia University", "Undergraduate research assistant & honors thesis student", "Class of 1939 Summer Research Fellowship, summer 2020"
 ) %>% 
   detailed_entries(Position, Year, Where, Name, Awards)
