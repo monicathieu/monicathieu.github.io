@@ -2,7 +2,7 @@
 title: "Monica Thieu on the internet"
 ---
 
-I am a postdoctoral fellow at **Emory University,** studying how we process and conceptualize different types of emotional experiences.
+I am a postdoctoral fellow in cognitive neuroscience at **Emory University,** studying how perceptual and conceptual information contribute to emotional experiences.
 
 I use primarily **R** for my own data analysis and teach R so others might use it as well.
 

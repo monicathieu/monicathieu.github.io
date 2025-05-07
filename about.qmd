@@ -11,9 +11,19 @@ about:
       href: https://github.com/monicathieu
 ---
 
-# Where I'm at.
+# Where I'm going!
+
+In fall 2025, I will be starting as an Assistant Professor in the department of [Neuroscience, Cognition, and Behavior](https://www.sandiego.edu/cas/neuroscience-cognition-behavior/) at the University of San Diego in sunny San Diego, CA. 
+
+If you are a USD undergraduate, I will be recruiting research assistants. And for external scientists, I am always open to potential research collaborations. Please [contact me!](../contact/)
+
+My lab website is under construction! Please check back for updates.
+
+# Where I am.
 
 I'm currently a [FIRST](https://med.emory.edu/education/postdoctoral-training/first/index.html)-funded postdoctoral fellow working in Dr. Phil Kragel's [ECCO Lab](https://www.ecco-lab.org) at Emory University in Atlanta, GA. In my research, I apply deep learning models to behavior and neuroimaging to investigate how people experience emotions from the things they see and hear. In my teaching, I develop courses on the foundations of those computational techniques for junior behavioral scientists. At any given moment, I'm probably drinking from a very large cup of tea.
+
+Sadly, the NIH IRACDA postdoctoral training program, of which FIRST at Emory was a part, has been terminated nationwide along with many other scientific training grants as of April 2025. I am proud to be one of the final fellows whose research and teaching training were funded by FIRST.
 
 **Previously:**
 
