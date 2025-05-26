@@ -2,15 +2,16 @@
 title: CV
 name: Monica
 surname: Thieu, PhD
-position: "Postdoctoral scholar"
-address: "Dept of Psychology, Emory University"
+position: "Assistant professor (incoming)"
+address: "Dept of Neuroscience, Cognition, & Behavior, University of San Diego"
 www: www.monicathieu.com
 email: "mthieu@emory.edu"
 twitter: monica_too_
 github: monicathieu
 date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts pioneering research on radioactivity."
-headcolor: "#00ff00"
+headcolor: "#7ab800"
+addresscolor: "#888888"
 output: 
   vitae::markdowncv:
     theme: davewhipp
@@ -24,13 +25,23 @@ require(vitae)
 
 In my research, I use behavioral, modeling, and fMRI research methods to characterize how perceptual input contributes to affective experience.
 
-In my teaching, I design and practice reflective, evidence-based, and student-centered training for psychological scientists, with a focus on technical training in statistics and scientific computing.
+In my teaching, I design and practice reflective, evidence-based, and student-centered training for behavioral scientists, with a focus on technical training in statistics and scientific computing.
 
 * Method competencies:
   * Functional neuroimaging: **Intermediate** in nipype, SPM, FSL; **proficient** in fmriprep
   * Behavioral tasks: **Advanced** in Gorilla, Qualtrics; **intermediate** in PsychoPy
   * Data management tools: **Intermediate** in REDCap
   * Coding: **Advanced** in R, Python; **intermediate** in Matlab, shell; **proficient** in JavaScript, Stan
+
+## Appointments
+
+```{r}
+tribble(
+  ~ Position, ~ Year, ~ Institution, ~ Where,
+  "Assistant Professor of Neuroscience", "incoming Fall 2025", "University of San Diego", "San Diego, CA, USA",
+) %>% 
+  detailed_entries(Institution, Year, Where, Position)
+```
 
 ## Education
 
@@ -49,7 +60,7 @@ tribble(
 ```{r}
 tribble(
   ~ Position, ~ Year, ~ Institution, ~ Where, ~ Why,
-    "Postdoctoral fellow", "Aug 2022 - present", "Emory University", "Atlanta, GA, USA", c("Project: Subcortical pathways of looming and threat", "Supervisor: Dr. Philip Kragel", "Funding: [FIRST NIH IRACDA postdoctoral fellowship](https://med.emory.edu/education/postdoctoral-training/first/index.html) (100% salary support for 3 years)"),
+    "Postdoctoral fellow", "Aug 2022 - Aug 2025", "Emory University", "Atlanta, GA, USA", c("Project: Subcortical pathways of looming and threat", "Supervisor: Dr. Philip Kragel", "Funding: [FIRST NIH IRACDA postdoctoral fellowship](https://med.emory.edu/education/postdoctoral-training/first/index.html) (100% salary support for 3 years)"),
   "Graduate research assistant", "Sept 2017 - May 2022", "Columbia University", "New York, NY, USA", c("Dissertation: ['Exploring perception and categorization of social and affective stimuli'](https://academiccommons.columbia.edu/doi/10.7916/zjfd-fq65)", "Advisor: Dr. Kevin Ochsner"),
   "Lab manager & research coordinator", "June 2015 - July 2017", "Stanford University", "Palo Alto, CA, USA", c("Project: Healthy aging and memory", "Supervisor: Dr. Anthony Wagner"),
   "Undergraduate research assistant", "Jan 2013 - June 2015", "Stanford University", "Palo Alto, CA, USA", c("Honors thesis: 'Chronic media multitasking and distraction: Neural substrates and mnemonic consequences'", "Advisors: Dr. Melina  Uncapher, Dr. Anthony Wagner")
@@ -235,16 +246,17 @@ tribble(
 ```{r}
 tribble(
   ~ Position, ~ Year, ~ Org, ~ Where, ~ Details,
-  "Senator & executive committee member", "2024 - present", "University Senate", "Emory University", "",
-  "Chair", "2024 - present", "Emory Postdoctoral Association", "Emory University", "",
-  "Executive Committee member", "2024 - present", "FIRST IRACDA program", "Emory University", "",
+  # when it's for an org with no superordinate, put the ordinate in the 4th "where" column so it lands in the parentheses
+  "Conference abstract reviewer", "2025", "", "Social & Affective Neuroscience Society", "",
+  "Senator & executive committee member", "2024 - 2025", "University Senate", "Emory University", "",
+  "Chair", "2024 - 2025", "Emory Postdoctoral Association", "Emory University", "",
+  "Executive Committee member", "2024 - 2025", "FIRST IRACDA program", "Emory University", "",
   "Treasurer", "2023 - 2024", "Emory Postdoctoral Association", "Emory University", "",
   "Moderator & judge", "2023, 2024", "Research Day", "Spelman College", "",
   "Peer reviewer", " ", " ", "ad hoc", "Cerebral Cortex; Neuropsychologia; Social, Cognitive, & Affective Neuroscience; Humanities & Social Sciences Communications"
 ) %>% 
   detailed_entries(Org, Year, Where, Position, Details)
 ```
-
 
 ## Workshops & summer schools attended
 
