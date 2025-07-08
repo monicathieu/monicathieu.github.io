@@ -5,7 +5,7 @@ title-block-banner: true
 
 # Email
 
-For professional (academic or consulting) and media inquiries you can reach me at [mthieu -at- emory -dot- edu](mailto:mthieu@emory.edu).
+For professional (academic or consulting) and media inquiries you can reach me at [mthieu -at- sandiego -dot- edu](mailto:mthieu@sandiego.edu).
 
 Unfortunately I cannot respond to fan mail, but I appreciate the thought!
 

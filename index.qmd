@@ -1,10 +1,10 @@
 ---
-title: "Monica Thieu on the internet"
+title: "Monica Thieu, PhD on the internet"
 ---
 
-I am a postdoctoral fellow in cognitive neuroscience at **Emory University,** studying how perceptual and conceptual information contribute to emotional experiences.
+I am an incoming assistant professor in neuroscience at the **University of San Diego,** studying how perceptual and conceptual information in the human brain contribute to emotional experiences.
 
-I use primarily **R** for my own data analysis and teach R so others might use it as well.
+I teach courses in statistics and scientific computing to train new scientists in quantitative and computational reasoning.
 
 Welcome to my [`quarto`](https://github.com/rstudio/blogdown)-powered website! Please take a look around.
 
