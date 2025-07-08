@@ -255,14 +255,14 @@
     "href": "contact.html",
     "title": "Contact me",
     "section": "",
-    "text": "Email\nFor professional (academic or consulting) and media inquiries you can reach me at mthieu -at- emory -dot- edu.\nUnfortunately I cannot respond to fan mail, but I appreciate the thought!\n\n\nTipping (if you found my posts useful)\nI put coding tips and tutorials on my blog for free so that they can reach anyone who might find them useful! These blog posts do take a non-negligible amount of time to write. If my work has helped you in any way, I will happily accept a small tip if you have the financial resources.\n\n\n\n\nTwitter\nI used to post about stats/science on occasion @monica_too_, but I have stepped away from Twitter since it was taken private. :("
+    "text": "Email\nFor professional (academic or consulting) and media inquiries you can reach me at mthieu -at- sandiego -dot- edu.\nUnfortunately I cannot respond to fan mail, but I appreciate the thought!\n\n\nTipping (if you found my posts useful)\nI put coding tips and tutorials on my blog for free so that they can reach anyone who might find them useful! These blog posts do take a non-negligible amount of time to write. If my work has helped you in any way, I will happily accept a small tip if you have the financial resources.\n\n\n\n\nTwitter\nI used to post about stats/science on occasion @monica_too_, but I have stepped away from Twitter since it was taken private. :("
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Monica Thieu on the internet",
+    "title": "Monica Thieu, PhD on the internet",
     "section": "",
-    "text": "I am a postdoctoral fellow in cognitive neuroscience at Emory University, studying how perceptual and conceptual information contribute to emotional experiences.\nI use primarily R for my own data analysis and teach R so others might use it as well.\nWelcome to my quarto-powered website! Please take a look around."
+    "text": "I am an incoming assistant professor in neuroscience at the University of San Diego, studying how perceptual and conceptual information in the human brain contribute to emotional experiences.\nI teach courses in statistics and scientific computing to train new scientists in quantitative and computational reasoning.\nWelcome to my quarto-powered website! Please take a look around."
   },
   {
     "objectID": "posts/2020-04-08-tidy-multilevel/index.html",
