@@ -28,7 +28,7 @@ In my research, I use behavioral, modeling, and fMRI research methods to charact
 In my teaching, I design and practice reflective, evidence-based, and student-centered training for behavioral scientists, with a focus on technical training in statistics and scientific computing.
 
 * Method competencies:
-  * Functional neuroimaging: **Intermediate** in nipype, SPM, FSL; **proficient** in fmriprep
+  * Functional neuroimaging: **Advanced** in SPM; **Intermediate** in nipype, FSL
   * Behavioral tasks: **Advanced** in Gorilla, Qualtrics; **intermediate** in PsychoPy
   * Data management tools: **Intermediate** in REDCap
   * Coding: **Advanced** in R, Python; **intermediate** in Matlab, shell; **proficient** in JavaScript, Stan
