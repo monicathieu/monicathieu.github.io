@@ -14,7 +14,8 @@ website:
         text: About
       - href: posts.qmd
         text: Blog
-      - research.qmd
+      - href: https://cocoa-lab-usd.netlify.app
+        text: Research
       - sidebar:teaching
       - game-shows.qmd
       - href: contact.qmd
