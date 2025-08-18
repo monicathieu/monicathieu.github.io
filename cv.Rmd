@@ -2,10 +2,10 @@
 title: CV
 name: Monica
 surname: Thieu, PhD
-position: "Assistant professor (incoming)"
+position: "Assistant professor"
 address: "Dept of Neuroscience, Cognition, & Behavior, University of San Diego"
 www: www.monicathieu.com
-email: "mthieu@emory.edu"
+email: "mthieu@sandiego.edu"
 twitter: monica_too_
 github: monicathieu
 date: "`r format(Sys.time(), '%B %Y')`"
@@ -37,10 +37,10 @@ In my teaching, I design and practice reflective, evidence-based, and student-ce
 
 ```{r}
 tribble(
-  ~ Position, ~ Year, ~ Institution, ~ Where,
-  "Assistant Professor of Neuroscience", "incoming Fall 2025", "University of San Diego", "San Diego, CA, USA",
+  ~ Position, ~ Why, ~ Year, ~ Institution, ~ Where,
+  "Assistant professor", "Dept of Neuroscience, Cognition, & Behavior", "Aug 2025 - present", "University of San Diego", "San Diego, CA, USA",
 ) %>% 
-  detailed_entries(Institution, Year, Where, Position)
+  detailed_entries(Institution, Year, Where, Position, Why)
 ```
 
 ## Education
@@ -83,6 +83,7 @@ bibliography_entries("cv-files/publications.bib") # %>%
 ```{r}
 tribble(
   ~ Position, ~ Year, ~ Course, ~ Where,
+  "Instructor of record", "Fa2025", "NCB 210: Intro to Statistics", "University of San Diego Dept of Neuro, Cog, & Beh",
   "Instructor of record", "Sp2024", "PSY 417: Statistics II in Psychology", "Spelman College Dept of Psychology",
   "Instructor", "Su2023, Su2024", "Data Science Lab Module", "[Spelman College WiSTEM](https://www.spelman.edu/academics/research-programs/wistem)",
   "Instructor of record", "Su2022", "PSYC 1021: Science of Psychology: Explorations & Applications", "Columbia Dept of Psychology"
