@@ -2,7 +2,7 @@
 title: "Monica Thieu, PhD on the internet"
 ---
 
-I am an incoming assistant professor in neuroscience at the **University of San Diego,** studying how perceptual and conceptual information in the human brain contribute to emotional experiences.
+I am an assistant professor in neuroscience at the **University of San Diego,** studying how perceptual and conceptual information in the human brain contribute to emotional experiences.
 
 I teach courses in statistics and scientific computing to train new scientists in quantitative and computational reasoning.
 
