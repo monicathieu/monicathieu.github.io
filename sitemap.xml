@@ -2,74 +2,74 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.monicathieu.com/teaching/teaching-statement.html</loc>
-    <lastmod>2024-12-29T05:33:17.807Z</lastmod>
+    <lastmod>2025-11-25T22:02:22.975Z</lastmod>
   </url>
   <url>
     <loc>https://www.monicathieu.com/teaching/teaching-materials.html</loc>
-    <lastmod>2024-12-29T05:33:17.805Z</lastmod>
+    <lastmod>2025-11-25T22:02:22.974Z</lastmod>
   </url>
   <url>
     <loc>https://www.monicathieu.com/research.html</loc>
-    <lastmod>2024-12-29T23:18:14.645Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts/2024-12-29-setting-up-this-website.html</loc>
-    <lastmod>2025-01-01T22:27:02.479Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts/2024-05-20-conda-env-export-from-history.html</loc>
-    <lastmod>2024-12-29T22:50:26.408Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts/2021-05-28-intro-psych-brain-bingo/index.html</loc>
-    <lastmod>2024-12-29T22:54:41.111Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts/2020-08-15-prepare-teach-r-lesson.html</loc>
-    <lastmod>2024-12-29T23:34:21.890Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts.html</loc>
-    <lastmod>2024-12-29T22:22:01.617Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/game-shows.html</loc>
-    <lastmod>2024-12-29T22:38:55.136Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/about.html</loc>
-    <lastmod>2025-08-18T21:29:34.623Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/contact.html</loc>
-    <lastmod>2025-07-08T21:05:15.730Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/index.html</loc>
-    <lastmod>2025-08-18T21:23:36.584Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts/2020-04-08-tidy-multilevel/index.html</loc>
-    <lastmod>2025-01-01T22:40:14.483Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts/2020-11-12-nypd-ccrb-data/index.html</loc>
-    <lastmod>2024-12-29T23:29:56.393Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.monicathieu.com/posts/2021-07-29-cu-sipps-ggplot-aes.html</loc>
-    <lastmod>2024-12-29T22:49:28.715Z</lastmod>
+    <lastmod>2025-11-25T22:02:22.972Z</lastmod>
   </url>
   <url>
     <loc>https://www.monicathieu.com/posts/2024-05-21-multiple-r-versions.html</loc>
-    <lastmod>2025-01-01T22:41:41.814Z</lastmod>
+    <lastmod>2025-11-25T22:02:22.971Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts/2021-07-29-cu-sipps-ggplot-aes.html</loc>
+    <lastmod>2025-11-25T22:02:22.970Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts/2020-11-12-nypd-ccrb-data/index.html</loc>
+    <lastmod>2025-11-25T22:02:22.969Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts/2020-04-08-tidy-multilevel/index.html</loc>
+    <lastmod>2025-11-25T22:02:22.968Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/index.html</loc>
+    <lastmod>2025-11-25T22:02:22.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/contact.html</loc>
+    <lastmod>2025-11-25T22:02:22.936Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/about.html</loc>
+    <lastmod>2025-11-25T22:02:22.936Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/game-shows.html</loc>
+    <lastmod>2025-11-25T22:02:22.964Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts.html</loc>
+    <lastmod>2025-11-25T22:02:22.965Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts/2020-08-15-prepare-teach-r-lesson.html</loc>
+    <lastmod>2025-11-25T22:02:22.968Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts/2021-05-28-intro-psych-brain-bingo/index.html</loc>
+    <lastmod>2025-11-25T22:02:22.970Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts/2024-05-20-conda-env-export-from-history.html</loc>
+    <lastmod>2025-11-25T22:02:22.971Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.monicathieu.com/posts/2024-12-29-setting-up-this-website.html</loc>
+    <lastmod>2025-11-25T22:02:22.971Z</lastmod>
   </url>
   <url>
     <loc>https://www.monicathieu.com/teaching/teaching-impact.html</loc>
-    <lastmod>2024-12-29T05:33:17.794Z</lastmod>
+    <lastmod>2025-11-25T22:02:22.972Z</lastmod>
   </url>
   <url>
     <loc>https://www.monicathieu.com/teaching/teaching-roles.html</loc>
-    <lastmod>2024-12-29T05:33:17.806Z</lastmod>
+    <lastmod>2025-11-25T22:02:22.974Z</lastmod>
   </url>
 </urlset>
