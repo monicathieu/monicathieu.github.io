@@ -12,7 +12,7 @@ date: "`r format(Sys.time(), '%B %Y')`"
 aboutme: "Marie is a Polish and naturalized-French physicist and chemist who conducts pioneering research on radioactivity."
 headcolor: "#7ab800"
 addresscolor: "#888888"
-output: 
+output:
   vitae::markdowncv:
     theme: davewhipp
 ---
@@ -28,8 +28,8 @@ In my research, I use behavioral, modeling, and fMRI research methods to charact
 In my teaching, I design and practice reflective, evidence-based, and student-centered training for behavioral scientists, with a focus on technical training in statistics and scientific computing.
 
 * Method competencies:
-  * Functional neuroimaging: **Advanced** in SPM; **Intermediate** in nipype, FSL
-  * Behavioral tasks: **Advanced** in Gorilla, Qualtrics; **intermediate** in PsychoPy
+  * Functional neuroimaging: **Advanced** in SPM; **intermediate** in nipype, FSL, **proficient** in nilearn
+  * Behavioral tasks: **Advanced** in Gorilla, Qualtrics, PsychoPy
   * Data management tools: **Intermediate** in REDCap
   * Coding: **Advanced** in R, Python; **intermediate** in Matlab, shell; **proficient** in JavaScript, Stan
 
@@ -192,7 +192,7 @@ tribble(
   ~Year, ~Talk, ~Conference,
   "March 2024", "Advanced Data Visualization with ggplot2", "Emory Graduate Students in Psychology and Neuroscience workshop",
   "April 2023", "Shallow neural networks for collision detection predict arousal-related differences in subjective experience", "Social and Affective Neuroscience Society Annual Meeting",
-    "Jan 2023", "Remote brain bingo: Running group games on Zoom", "TIP Coast-To-Coast Conference",
+  "Jan 2023", "Remote brain bingo: Running group games on Zoom", "TIP Coast-To-Coast Conference",
   "June 2022", "Remote brain bingo: Running group games on Zoom", "Psych One Conference",
   "July 2020", "How to Prepare and Teach an R Lesson", "[NYC R Conference](https://rstats.ai/nyr/#speakers)",
   "Nov 2020", "Exploring the NYPD Civilian Complaint Database", "Columbia Foundations for Research Computing workshop",
@@ -218,6 +218,8 @@ bibliography_entries("cv-files/posters.bib") %>%
 tribble(
   ~Year, ~Title, ~Publication,
   "May 2024", "[Radio/podcast guest (trivia, science)](https://www.npr.org/transcripts/1196979444)", "Life Kit by NPR",
+  "Feb 2024", "[Radio/podcast guest (trivia, science)](https://www.npr.org/2024/02/18/1232301993/a-new-study-finds-the-memory-systems-that-give-trivia-champions-an-edge)", "NPR Weekend Edition Sunday",
+  "Feb 2024", "[Radio/podcast guest (trivia, science)](https://www.sciencefriday.com/segments/jeopardy-winner-memory-recall/)", "Science Friday",
   "2021 - 2022", "Host of [The Psychology PhD podcast](https://psychology.columbia.edu/podcast)", "Columbia Dept of Psychology",
   "Nov 2021", "[Video guest (science)](https://youtu.be/VTvJOb2hJ6k)", "Wired 5 Levels: Memory",
   "Sept 2021", "[Interview subject (teaching)](https://explaineverything.com/psychology-whiteboard-video-lessons-with-monica-thieu/)", "Explain Everything",
@@ -236,6 +238,9 @@ tribble(
 ```{r}
 tribble(
   ~ Name, ~ Year, ~ Where, ~ Position, ~ Awards,
+  "Sonya Patel", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Sophie Johnston", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Ari Bradford", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Meera Sethi", "2024 - 2025", "Emory University", "Undergraduate research assistant", "",
   "Lauren Wilkins", "2020 - 2022", "Columbia University", "Undergraduate research assistant & honors thesis student", "Class of 1939 Summer Research Fellowship, summer 2020"
 ) %>% 
@@ -248,7 +253,7 @@ tribble(
 tribble(
   ~ Position, ~ Year, ~ Org, ~ Where, ~ Details,
   # when it's for an org with no superordinate, put the ordinate in the 4th "where" column so it lands in the parentheses
-  "Conference abstract reviewer", "2025", "", "Social & Affective Neuroscience Society", "",
+  "Conference abstract reviewer", "2025 - ", "", "Social & Affective Neuroscience Society; Society for Affective Science", "",
   "Senator & executive committee member", "2024 - 2025", "University Senate", "Emory University", "",
   "Chair", "2024 - 2025", "Emory Postdoctoral Association", "Emory University", "",
   "Executive Committee member", "2024 - 2025", "FIRST IRACDA program", "Emory University", "",
@@ -264,6 +269,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Workshop, ~Desc,
+  "2025", "[Faculty Success Program](https://www.ncfdd.org/programs/faculty-success-program/)", "NCFDD",
   "2022", "[Neurohackademy](https://neurohackademy.org)", "University of Washington",
   "2019", "[Kavli Summer Institute in Cognitive Neuroscience](https://sicn.cmb.ucdavis.edu/)", "University of California, Santa Barbara",
   "2018", "São Paulo School of Advanced Sciences on Social & Affective Neuroscience", "Mackenzie Presbyterian University"
