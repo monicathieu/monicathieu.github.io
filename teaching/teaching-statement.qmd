@@ -1,5 +1,6 @@
 ---
 title: "Teaching philosophy"
+date: "2024-09-01"
 ---
 
 As a teacher-scholar, my teaching development has been intertwined with my development as a researcher. In particular, I have learned about the ways in which effective research and teaching do not come from “eureka” moments of intellectual brilliance, but, instead, depend on thoughtful planning and structures that support success from the bottom up. Just as rigorous study design and statistical analysis are necessary to answer a research question, positive early experiences and supportive course structures are necessary for students to enter a discipline and thrive within it. I focus on designing and teaching classes where I can inspire new students to study psychology and scientific computing. In those classes, I implement accessible course policies to sustain student success throughout the semester. Finally, I maintain comprehensive course materials to standardize my pedagogy and share those materials to support my peers’ teaching. 

@@ -4,9 +4,35 @@ title: "Teaching roles and responsibilities"
 
 # Instructor of record
 
+## NCB 210 -- Intro to Statistics
+
+- Institution: University of San Diego, Dept of Neuroscience, Cognition & Behavior
+- Term: fall 2025
+- [View syllabus](../teaching-materials-files/syllabus_usd_ncb210_fa2025.pdf)
+
+### Course details
+
+- Lower-division undergraduate class, satisfies statistics requirement for Neuroscience and Cognition & Behavior majors
+- Statistics with a regression & parameter estimation framework
+- Analysis techniques taught in R/RStudio Cloud
+- 2 sections, 40 students total
+
+### Instructional responsibilities
+
+- Wrote curriculum
+  - Defined learning objectives
+  - Evaluated and selected readings
+  - Wrote lesson plans, R-based problem sets, paper exams
+  - Created teaching materials: slides, activity materials, R notebooks
+- Lectured, live-coded, and supervised activities
+- Graded assignments
+  - R-based computational assignments and paper exams
+  - Gave detailed formative feedback on problem sets using single-point-style rubrics
+- Held weekly office hours
+
 ## PSY 417 -- Statistics II in Psychology
 
-- Institution: Spelman College
+- Institution: Spelman College, Dept of Psychology
 - Term: spring 2024
 - Supervisor contact: [Jimmeka Guillory Wright](mailto:jguillo1@spelman.edu)
 - [View syllabus](../teaching-materials-files/syllabus_spelman_psy417_sp2024.pdf)
@@ -33,7 +59,7 @@ title: "Teaching roles and responsibilities"
 
 ## PSYC 1021 -- The Science of Psychology: Explorations and Applications
 
-- Institution: Columbia University
+- Institution: Columbia University, Dept of Psychology
 - Term: summer 2022
 - [View syllabus](../teaching-materials-files/syllabus_columbia_psyc1021_su2022.pdf)
 
@@ -83,7 +109,7 @@ title: "Teaching roles and responsibilities"
 
 ## PSYC 1021 -- The Science of Psychology: Explorations and Applications
 
-- Institution: Columbia University
+- Institution: Columbia University, Dept of Psychology
 - Term: spring 2021
 - Lead instructor: [Caroline Marvin](mailto:cbm2118@columbia.edu)
 
@@ -129,7 +155,7 @@ title: "Teaching roles and responsibilities"
 
 ## PSYC 1490 -- Research Methods in Psychology
 
-- Institution: Columbia University
+- Institution: Columbia University, Dept of Psychology
 - Terms: fall 2018, fall 2019
 - Lead instructor: [Katherine Fox-Glassman](mailto:kjt2111@columbia.edu)
 
@@ -179,7 +205,7 @@ title: "Teaching roles and responsibilities"
 
 ## BUSI B8144 -- Intro to Programming in R
 
-- Institution: Columbia University
+- Institution: Columbia University Business School
 - Terms: spring 2019, spring 2020, fall 2021
 - Lead instructor: [Jared Lander](mailto:jaredlander@caa.columbia.edu)
 
@@ -201,7 +227,7 @@ title: "Teaching roles and responsibilities"
 
 ## PSYC 1001: Science of Psychology
 
-- Institution: Columbia University
+- Institution: Columbia University, Dept of Psychology
 - Term: fall 2017
 - Lead instructor: [Kathleen Taylor](mailto:ktaylor@barnard.edu)
 

@@ -7,6 +7,8 @@ title-block-banner: true
 
 For professional (academic or consulting) and media inquiries you can reach me at [mthieu -at- sandiego -dot- edu](mailto:mthieu@sandiego.edu).
 
+If you are writing to request a recommendation letter, please read [my recommendation request info](teaching/recommendations.qmd) first!
+
 Unfortunately I cannot respond to fan mail, but I appreciate the thought!
 
 # Tipping (if you found my posts useful)

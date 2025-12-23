@@ -1,0 +1,9 @@
+---
+title: "Teaching portfolio"
+---
+
+- [Statement of teaching philosophy](teaching-statement.qmd)
+- [Summary of teaching experiences](teaching-roles.qmd)
+- [Excerpts from student evaluations](teaching-impact.qmd)
+- [Sample course materials](teaching-materials.qmd)
+  - Please email me with questions about any materials listed here, or any materials I might have from other courses listed in my teaching experiences!

@@ -25,10 +25,8 @@ website:
     - id: teaching
       title: Teaching
       contents:
-        - teaching/teaching-statement.qmd
-        - teaching/teaching-roles.qmd
-        - teaching/teaching-impact.qmd
-        - teaching/teaching-materials.qmd
+        - teaching/recommendations.qmd
+        - teaching/teaching-portfolio-landing.qmd
 format:
   html:
     theme: 
