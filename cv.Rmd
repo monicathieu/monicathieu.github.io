@@ -83,7 +83,8 @@ bibliography_entries("cv-files/publications.bib") # %>%
 ```{r}
 tribble(
   ~ Position, ~ Year, ~ Course, ~ Where,
-  "Instructor of record", "Fa2025", "NCB 210: Intro to Statistics", "University of San Diego Dept of Neuro, Cog, & Beh",
+  "Instructor of record", "Sp2026", "NCB 336: Cognitive Psychology", "University of San Diego Dept of Neuro, Cog, & Beh",
+  "Instructor of record", "Fa2025 - Sp2026", "NCB 210: Intro to Statistics", "University of San Diego Dept of Neuro, Cog, & Beh",
   "Instructor of record", "Sp2024", "PSY 417: Statistics II in Psychology", "Spelman College Dept of Psychology",
   "Instructor", "Su2023, Su2024", "Data Science Lab Module", "[Spelman College WiSTEM](https://www.spelman.edu/academics/research-programs/wistem)",
   "Instructor of record", "Su2022", "PSYC 1021: Science of Psychology: Explorations & Applications", "Columbia Dept of Psychology"
@@ -190,6 +191,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Talk, ~Conference,
+  "Feb 2026", "On Silence: Musings from a cognitive neuroscientist", "University of San Diego Humanities Center",
   "March 2024", "Advanced Data Visualization with ggplot2", "Emory Graduate Students in Psychology and Neuroscience workshop",
   "April 2023", "Shallow neural networks for collision detection predict arousal-related differences in subjective experience", "Social and Affective Neuroscience Society Annual Meeting",
   "Jan 2023", "Remote brain bingo: Running group games on Zoom", "TIP Coast-To-Coast Conference",
@@ -253,6 +255,7 @@ tribble(
 tribble(
   ~ Position, ~ Year, ~ Org, ~ Where, ~ Details,
   # when it's for an org with no superordinate, put the ordinate in the 4th "where" column so it lands in the parentheses
+  "Application reviewer", "2026", "STAR Undergraduate Summer Research Fellowship", "University of San Diego", "",
   "Conference abstract reviewer", "2025 - ", "", "Social & Affective Neuroscience Society; Society for Affective Science", "",
   "Senator & executive committee member", "2024 - 2025", "University Senate", "Emory University", "",
   "Chair", "2024 - 2025", "Emory Postdoctoral Association", "Emory University", "",
