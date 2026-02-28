@@ -151,6 +151,8 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Award, ~Desc,
+  "Spring 2026", "Teaching and Learning Grant ($800)", "University of San Diego CAS Committee for Undergraduate Teaching and Learning",
+  "Spring 2026", "Enhancing Student-Faculty Interaction Fund grant ($500)", "University of San Diego Office of the Provost",
   "Spring 2022", "[Teaching Development Program Advanced Track certificate](https://tdp.ctl.columbia.edu/about/overview/)", "Columbia Center for Teaching and Learning",
   "Spring 2022", "Presidential Graduate Teaching Award finalist", "Columbia Office of the Provost",
   "Spring 2021", "[Grant to Enhance Remote Learning and Teaching ($1,500)](https://scienceandsociety.columbia.edu/content/remote-learning-grants-overview)", "Columbia Center for the History and Ethics of Public Health",
