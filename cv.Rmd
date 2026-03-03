@@ -221,6 +221,7 @@ bibliography_entries("cv-files/posters.bib") %>%
 ```{r}
 tribble(
   ~Year, ~Title, ~Publication,
+  "Feb 2026", "[Podcast guest (science)](https://podcasts.apple.com/us/podcast/how-the-brain-makes-sense-of-the-world-through-emotion/id1644441847?i=1000748218498)", "At the Edge of It All by the University of San Diego",
   "May 2024", "[Radio/podcast guest (trivia, science)](https://www.npr.org/transcripts/1196979444)", "Life Kit by NPR",
   "Feb 2024", "[Radio/podcast guest (trivia, science)](https://www.npr.org/2024/02/18/1232301993/a-new-study-finds-the-memory-systems-that-give-trivia-champions-an-edge)", "NPR Weekend Edition Sunday",
   "Feb 2024", "[Radio/podcast guest (trivia, science)](https://www.sciencefriday.com/segments/jeopardy-winner-memory-recall/)", "Science Friday",
@@ -242,6 +243,11 @@ tribble(
 ```{r}
 tribble(
   ~ Name, ~ Year, ~ Where, ~ Position, ~ Awards,
+  "Clara Geuzaine", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Abraham Funk", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Lucy Cook", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Annelyse Basha", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Valentina Alvarado", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Sonya Patel", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Sophie Johnston", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Ari Bradford", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
