@@ -270,7 +270,7 @@ tribble(
   "Executive Committee member", "2024 - 2025", "FIRST IRACDA program", "Emory University", "",
   "Treasurer", "2023 - 2024", "Emory Postdoctoral Association", "Emory University", "",
   "Moderator & judge", "2023, 2024", "Research Day", "Spelman College", "",
-  "Peer reviewer", " ", " ", "ad hoc", "Cerebral Cortex; Neuropsychologia; Social, Cognitive, & Affective Neuroscience; Humanities & Social Sciences Communications"
+  "Peer reviewer", " ", " ", "ad hoc", "Cerebral Cortex; Neuropsychologia; Social, Cognitive, & Affective Neuroscience; Emotion; Humanities & Social Sciences Communications"
 ) %>% 
   detailed_entries(Org, Year, Where, Position, Details)
 ```
