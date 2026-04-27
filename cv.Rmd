@@ -193,6 +193,7 @@ tribble(
 ```{r}
 tribble(
   ~Year, ~Talk, ~Conference,
+  "April 2026", "Surprise-related brain regions encode high-level visual features of magic tricks", "Social and Affective Neuroscience Society Annual Meeting",
   "Feb 2026", "On Silence: Musings from a cognitive neuroscientist", "University of San Diego Humanities Center",
   "March 2024", "Advanced Data Visualization with ggplot2", "Emory Graduate Students in Psychology and Neuroscience workshop",
   "April 2023", "Shallow neural networks for collision detection predict arousal-related differences in subjective experience", "Social and Affective Neuroscience Society Annual Meeting",
