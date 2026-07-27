@@ -32,7 +32,7 @@ CRAN R installers' default behavior is to _uninstall all existing R versions and
 
 You can do this with the rig command line interface:
 
-```{bash}
+```bash
 rig add 4.6.1
 ```
 
@@ -48,7 +48,7 @@ If you were previously managing multiple R versions with RSwitch, you can pretty
 
 Once you download rig you will need to run one final command to **orthogonalize** the existing R launcher symlinks that were installed using CRAN installers. Essentially, when you install R the "usual" way with a CRAN installer, [the CRAN installer sets up a symlink so that R "thinks" it's installed in a non-version-specific home folder](https://positron.posit.co/r-installations.html#unsupported-r-installations). Even if you manage to install multiple versions by tricking CRAN installers into not deleting existing R versions (as I was doing before), these multiple R versions all _think_ they are installed in the same folder (they all symlink to the same place). rig will re-set each R version's home directory to its _actual_ install directory so that R versions can be launched directly from where they're actually installed.
 
-```{bash}
+```bash
 rig system make-orthogonal
 ```
 
