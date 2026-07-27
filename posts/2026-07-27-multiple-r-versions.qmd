@@ -1,0 +1,59 @@
+---
+title: "How to install and switch between multiple R versions on a Mac"
+date: 2026-07-27
+description: "Posit/RStudio officially support this now!!!"
+categories:
+  - hacks
+  - r
+engine: knitr
+---
+
+Every time I start a new analysis project, I like to try to start it on the newest available version of R so I can benefit from all those nice updates. (Additionally, some packages update their minimum compatible R version so not only do I get the newest version of R, I also get it to play most nicely with the newest version of packages!)
+
+However, R's default installation behavior when you use a .pkg installer on Mac is to _uninstall all other installed versions of R._ Which is quite bad for reproducibility! If my analysis code pipelines are basically independent from one another, I ought to be able to have multiple versions of R installed at the same time and associate different versions of R with different project folders.
+
+Turns out, the framework (or the Framework... you'll see) is already there! With a few additional steps, you too can become the master of versions. (And then you'll have no excuse for starting your new R projects using that old, dusty R version...)
+
+> **"Conda is better because it already lets you install a different python version for each environment!"** It definitely does. Conda does this by installing a separate copy of the Python source code (and indeed all packages) in each environment. Python's code base isn't massive, so thankfully this doesn't take up crazy amounts of storage. However, you can see that there are pros and cons to maintaining a machine-wide copy of software (as base R does) and prioritizing storage efficiency vs. multiple local copies and prioritizing flexibility (as conda does).
+>
+> PS: I've recently been experimenting with using [uv](https://docs.astral.sh/uv/) for Python package management, in part because it installs different Python versions in a system-wide directory that can be shared by different projects, instead of installing a full duplicate copy of Python in every project.
+
+## Rig: the _official_ R version manager app 
+
+At some point in the early 2020s, the Posit dev team. rig is now officially recommended as the [R version manager for RStudio](https://docs.posit.co/ide/user/ide/guide/environments/r/managing-r.html#managing-r-versions), as well as for [Positron](https://positron.posit.co/r-installations.html#unsupported-r-installations), the VSCode-based IDE optimized for R/Python data science analysis.
+
+If you previously used [RSwitch](https://rud.is/rswitch/guide/) to switch R versions, I _strongly_ recommend you switch to rig. rig's user experience is nearly identical to RSwitch, and perhaps more importantly, RSwitch appears not to be actively maintained anymore. rig is actively maintained by Posit developers and is thus a better-integrated solution in the long term.
+
+If you haven't been enjoying the luxury of switching between R versions until now, [rig is very easy to set up!](https://github.com/r-lib/rig) **rig works on Mac, Windows, and Linux.**
+
+### Reminder: use rig to install new R versions, not CRAN!
+
+CRAN R installers' default behavior is to _uninstall all existing R versions and keep only the newly installed one._ (see below for more details about why this is bothersome) The easiest way to keep multiple R versions rig-safe is to use rig to install new versions of R.
+
+You can do this with the rig command line interface:
+
+```{bash}
+rig add 4.6.1
+```
+
+You can simply `rig add` another version you'd like to have installed and rig will install it alongside the existing R versions.
+
+> **Note:** You cannot have multiple simultaneous versions of R with the same major and minor version but different patch numbers. For example, R 4.5.2 and R 4.6.0 simultaneously are okay, but R 4.6.0 and R 4.6.1 will overwrite each other's files.
+
+Refer to the [RStudio](https://docs.posit.co/ide/user/ide/guide/environments/r/managing-r.html#managing-r-versions) or [Positron](https://positron.posit.co/managing-interpreters.html) specific instructions for selecting the active R version for an instance of the IDE.
+
+### If you were previously using RSwitch
+
+If you were previously managing multiple R versions with RSwitch, you can pretty seamlessly install rig and uninstall RSwitch. rig even comes with a menu bar utility whose GUI is nearly the same as RSwitch's.
+
+Once you download rig you will need to run one final command to **orthogonalize** the existing R launcher symlinks that were installed using CRAN installers. Essentially, when you install R the "usual" way with a CRAN installer, [the CRAN installer sets up a symlink so that R "thinks" it's installed in a non-version-specific home folder](https://positron.posit.co/r-installations.html#unsupported-r-installations). Even if you manage to install multiple versions by tricking CRAN installers into not deleting existing R versions (as I was doing before), these multiple R versions all _think_ they are installed in the same folder (they all symlink to the same place). rig will re-set each R version's home directory to its _actual_ install directory so that R versions can be launched directly from where they're actually installed.
+
+```{bash}
+rig system make-orthogonal
+```
+
+and then you're done!
+
+## Accessing R packages for different R versions
+
+Each R version has a separate store for packages. (This makes total sense.) Once you've switched versions, how do you get the packages you need for the R version you're working on? I **strongly recommend** using the [`renv`](https://rstudio.github.io/renv/articles/renv.html) package for managing R package environments. While renv does not handle R version switching for you (hence this blog post), its system for managing package stores already smoothly handles packages for different R versions. You can use renv as usual and you should notice no differences as long as you switch to the correct R version before opening your R project. (Conveniently, renv will throw a warning upon startup if the version of R detected is different than the version recorded in the lockfile. If you forget to switch R versions, you can change your R interpreter (for Positron) or close your whole window (for RStudio), switch the R version, and reopen it.)
