@@ -287,26 +287,27 @@ tribble(
 ## Mentoring
 
 ```{r}
+# similarly, re-order to boost current RAs up to top
 tribble(
   ~ Name, ~ Year, ~ Where, ~ Position, ~ Awards,
   "Chiara Cossio", "2026 - ", "University of San Diego", "Post-baccalaureate research assistant", "",
-  "Alyssa Arjona-Gonzaga", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Phoebe Rodgers", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Mariah Wagner", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Finley Sasena", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Jasmine Chatha", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Ashanthy Pardilla", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Troy Fernandez", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Bea Racho", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Kayla Operana", "2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Gabby Jensen", "2026", "University of San Diego", "Undergraduate research assistant", "",
+  "Alyssa Arjona-Gonzaga", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Phoebe Rodgers", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Mariah Wagner", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Finley Sasena", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  # "Jasmine Chatha", "2026 - ", "University of San Diego", "Undergraduate research assistant", "", 2026-09-04 she hasn't shown up for an onboarding meeting yet. if she ghosts bye!
+  "Ashanthy Pardilla", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Troy Fernandez", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Bea Racho", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Kayla Operana", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Gabby Jensen", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  "Sophie Johnston", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Clara Geuzaine", "2026", "University of San Diego", "Undergraduate research assistant", "",
   "Abraham Funk", "2026", "University of San Diego", "Undergraduate research assistant", "",
   "Lucy Cook", "2026", "University of San Diego", "Undergraduate research assistant", "",
   "Annelyse Basha", "2026", "University of San Diego", "Undergraduate research assistant", "",
   "Valentina Alvarado", "2026", "University of San Diego", "Undergraduate research assistant", "",
   "Sonya Patel", "2025 - 2026", "University of San Diego", "Undergraduate research assistant", "",
-  "Sophie Johnston", "2025 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Ari Bradford", "2025 - 2026", "University of San Diego", "Undergraduate research assistant", "",
   "Meera Sethi", "2024 - 2025", "Emory University", "Undergraduate research assistant", "",
   "Lauren Wilkins", "2020 - 2022", "Columbia University", "Undergraduate research assistant & honors thesis student", "Class of 1939 Summer Research Fellowship, summer 2020; current PhD student in clinical psychology at Miami University"
