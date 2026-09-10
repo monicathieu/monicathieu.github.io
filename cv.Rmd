@@ -292,10 +292,10 @@ tribble(
   ~ Name, ~ Year, ~ Where, ~ Position, ~ Awards,
   "Chiara Cossio", "2026 - ", "University of San Diego", "Post-baccalaureate research assistant", "",
   "Alyssa Arjona-Gonzaga", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
-  "Phoebe Rodgers", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
+  # "Phoebe Rodgers", "2026 - ", "University of San Diego", "Undergraduate research assistant", "", # 2026-09-10 taken off list as she's dropping this semester. Leaving commented in case she comes back in the spring!
   "Mariah Wagner", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Finley Sasena", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
-  # "Jasmine Chatha", "2026 - ", "University of San Diego", "Undergraduate research assistant", "", 2026-09-04 she hasn't shown up for an onboarding meeting yet. if she ghosts bye!
+  "Jasmine Chatha", "2026 - ", "University of San Diego", "Undergraduate research assistant", "", 
   "Ashanthy Pardilla", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Troy Fernandez", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
   "Bea Racho", "2026 - ", "University of San Diego", "Undergraduate research assistant", "",
